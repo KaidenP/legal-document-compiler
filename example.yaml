@@ -1,0 +1,462 @@
+defaults:
+  case_number: FC-26-98765432-0003
+  date: 28APR26
+  author:
+    role: Respondent
+    name: Margaret R. Holloway
+  features:
+    - page_number
+    - case_number
+    - date
+    - title
+    - author
+  margins:
+    top: 72
+    bottom: 72
+    left: 72
+    right: 72
+  format:
+    defaults:
+      pt: 12
+      bold: false
+      italic: false
+      spacing:
+        between: 14
+        after: 14
+        collapse_with_previous: false
+    overrides:
+      heading:
+        pt: 13
+        bold: true
+        spacing:
+          after: 10
+      subheading:
+        italic: true
+        spacing:
+          after: 8
+
+documents:
+  - id: motion_to_compel
+    title: Motion to Compel Discovery Responses
+    output_file: output/motion_to_compel.pdf
+    content:
+      - type: heading
+        content: Introduction
+
+      - type: paragraph
+        id: intro_para
+        content: Respondent Margaret R. Holloway, by and through undersigned counsel, respectfully moves this Honorable Court pursuant to the applicable rules of civil procedure for an order compelling Petitioner Thomas B. Holloway to provide full, complete, and verified responses to Respondent's First Set of Interrogatories and First Request for Production of Documents, served upon Petitioner on the first day of March, 2026.
+
+      - type: paragraph
+        id: good_faith_para
+        content: Prior to filing this motion, undersigned counsel made good-faith efforts to resolve the discovery dispute without Court intervention, including written correspondence dated 05MAR26, 15MAR26, and 28MAR26, and a telephone conference on 20MAR26. Petitioner's counsel declined to provide a date certain for the production of responsive documents and failed to substantiate any of the objections asserted in Petitioner's untimely responses.
+
+      - Respondent is prejudiced by Petitioner's continued failure to comply with his discovery obligations. The documents and information sought are directly relevant to the valuation of the marital estate, the characterization of certain real and personal property, and the determination of each party's respective income for purposes of child and spousal support calculations.
+
+      - type: heading
+        content: Factual Background
+
+      - type: subheading
+        content: The Parties and Proceedings
+
+      - type: paragraph
+        id: parties_para
+        content: The parties were married on 14JUN08 and separated on 02SEP25 after seventeen years of marriage. Two minor children were born of the marriage, currently aged nine and thirteen. Petitioner filed the original Petition for Dissolution of Marriage on 15OCT25. Respondent filed her Response and Counter-Petition on 12NOV25.
+
+      - The parties have been unable to reach agreement on the division of the marital estate, which includes a family residence, two investment properties, two business interests held by Petitioner, multiple retirement and brokerage accounts, and various items of personal property.
+
+      - type: paragraph
+        id: complexity_para
+        content: The complexity of the marital estate and the opacity of Petitioner's financial disclosures have made formal discovery necessary. Respondent's counsel first conferred with Petitioner's counsel regarding the scope of anticipated discovery on 20JAN26, at which time Petitioner's counsel acknowledged the need for financial documentation and agreed to cooperate in the exchange of records.
+
+      - type: subheading
+        content: Respondent's Discovery Requests
+
+      - type: paragraph
+        id: interrogatories_para
+        content: On 01MAR26, Respondent served upon Petitioner, through counsel of record, Respondent's First Set of Interrogatories consisting of twenty-four separately numbered interrogatories directed to the identification and valuation of marital and separate property, the characterization of business income, the nature and extent of Petitioner's ownership interests in Holloway Capital Partners, LLC and HCP Real Estate Holdings, Inc., and the history of any transfers of marital assets during the two years preceding separation.
+
+      - type: paragraph
+        id: rfp_para
+        content: Simultaneously with the interrogatories, Respondent served Respondent's First Request for Production of Documents consisting of thirty-one separately numbered requests seeking, among other things, bank and brokerage account statements for all accounts held individually or jointly by Petitioner for the period January 2022 through the present; tax returns for tax years 2020 through 2025; financial statements, operating agreements, and K-1s for each business entity in which Petitioner holds any ownership interest; real property appraisals and mortgage statements; and all communications between Petitioner and any third party relating to the transfer, encumbrance, or disposition of any asset valued in excess of ten thousand dollars during the pendency of this proceeding.
+
+      - Respondent's discovery requests were properly served by electronic transmission to Petitioner's counsel of record and by first-class mail to Petitioner's last known residence address, in accordance with the applicable rules of civil procedure.
+
+      - type: subheading
+        content: Petitioner's Deficient Responses
+
+      - type: paragraph
+        id: late_response_para
+        content: Petitioner's responses to both the interrogatories and the requests for production were due on or before 31MAR26. Petitioner failed to serve any response by that date. On 03APR26, five days after the response deadline, Petitioner's counsel transmitted via email a document styled "Petitioner's Objections and Responses to Respondent's First Set of Interrogatories and First Request for Production of Documents." Petitioner did not seek an extension of time, and Respondent did not agree to any extension.
+
+      - type: paragraph
+        id: boilerplate_para
+        content: Petitioner's responses consist almost entirely of boilerplate objections, including objections asserting that the requests are "overly broad," "unduly burdensome," "not reasonably calculated to lead to the discovery of admissible evidence," and "seek information protected by the attorney-client privilege or work product doctrine." These objections are asserted without specificity, without identification of any particular document or category of documents withheld on privilege grounds, and without a privilege log as required by the applicable rules.
+
+      - Of the thirty-one document requests, Petitioner agreed to produce documents responsive to only four, without any commitment as to a date of production. As of the date of this filing, no documents have been produced.
+
+      - Of the twenty-four interrogatories, Petitioner provided substantive responses to only seven. Petitioner's responses to the remaining seventeen interrogatories consist exclusively of the objections described in the preceding paragraph, with no substantive response provided in the alternative.
+
+      - type: heading
+        content: Legal Standard
+
+      - type: subheading
+        content: Scope of Discovery
+
+      - Parties may obtain discovery regarding any nonprivileged matter that is relevant to any party's claim or defense and proportional to the needs of the case, considering the importance of the issues at stake in the action, the amount in controversy, the parties' relative access to relevant information, the parties' resources, the importance of the discovery in resolving the issues, and whether the burden or expense of the proposed discovery outweighs its likely benefit.
+
+      - The information sought need not be admissible in evidence to be discoverable. Courts broadly construe the scope of discovery in dissolution proceedings, particularly where the complexity of the marital estate gives rise to legitimate concerns about the completeness and accuracy of voluntary financial disclosures.
+
+      - type: subheading
+        content: Obligation to Respond and Consequence of Failure
+
+      - type: paragraph
+        id: obligation_para
+        content: A party upon whom interrogatories are served must serve its answers and any objections within thirty days after being served with the interrogatories, unless the court orders a different time. Similarly, a party upon whom a request for production is served must serve a written response within thirty days after being served. A failure to timely respond may constitute a waiver of objections, including any claim of privilege.
+
+      - Where a party fails to respond to discovery as required, the party seeking discovery may move for an order compelling an answer, designation, production, or inspection. Such a motion must include a certification that the movant has in good faith conferred or attempted to confer with the person or party failing to make disclosure or discovery in an effort to obtain it without court action.
+
+      - type: heading
+        content: Argument
+
+      - type: subheading
+        content: Petitioner's Boilerplate Objections Should Be Overruled
+
+      - type: paragraph
+        id: boilerplate_arg_para
+        content: As described in detail above, Petitioner's responses consist almost entirely of unspecified boilerplate objections. Courts uniformly hold that boilerplate objections to discovery requests are improper and do not constitute a legally sufficient basis for withholding responsive documents or information. An objection must state with specificity the grounds for objecting to the request, including the reasons, and must state whether any responsive materials are being withheld on the basis of that objection.
+
+      - content:
+          - "Petitioner's responses, as described at paragraph "
+          - type: reference
+            ref: "@boilerplate_para"
+          - ", fail to meet this standard in every particular. They identify no specific documents withheld, provide no privilege log, articulate no burden that would be imposed by compliance, and offer no explanation for why the information sought is disproportionate to the needs of this case."
+
+      - type: subheading
+        content: Petitioner Has Waived His Objections
+
+      - content:
+          - "As established at paragraph "
+          - type: reference
+            ref: "@late_response_para"
+          - ", Petitioner's responses were served five days after the applicable deadline. Because Petitioner failed to timely respond and did not seek an extension, Petitioner has waived all objections to the discovery requests, including any claim of privilege, unless the Court finds good cause to excuse the waiver."
+
+      - Petitioner has offered no explanation for the untimely responses and no basis for a finding of good cause. The delay is unexplained, the responses are substantively deficient, and the prejudice to Respondent is substantial.
+
+      - type: subheading
+        content: The Requested Discovery Is Proportional and Necessary
+
+      - content:
+          - "As noted at paragraph "
+          - type: reference
+            ref: "@complexity_para"
+          - ", the complexity of the marital estate in this proceeding is substantial. Petitioner controls two closely held business entities and holds title individually or jointly to three parcels of real property. The information requested in the interrogatories and document requests described at paragraphs "
+          - type: reference
+            ref: "@interrogatories_para"
+          - " and "
+          - type: reference
+            ref: "@rfp_para"
+          - " is essential to Respondent's ability to present a complete and accurate picture of the marital estate to this Court."
+
+      - Without the requested financial records, Respondent cannot independently verify the income and asset figures reported by Petitioner in his preliminary financial disclosure, cannot assess the accuracy of business valuations, and cannot determine whether any marital assets have been transferred, encumbered, or dissipated during the pendency of these proceedings.
+
+      - type: subheading
+        content: Good Faith Efforts to Resolve the Dispute
+
+      - content:
+          - "As set forth at paragraph "
+          - type: reference
+            ref: "@good_faith_para"
+          - ", Respondent's counsel made repeated good-faith efforts over a period of more than three weeks to resolve this dispute without Court intervention. Those efforts were unsuccessful. This motion is therefore properly before the Court."
+
+      - type: heading
+        content: Relief Requested
+
+      - type: paragraph
+        id: relief_para
+        content: For the foregoing reasons, Respondent respectfully requests that this Court enter an order requiring Petitioner to serve full, complete, and verified responses to Respondent's First Set of Interrogatories and to produce all documents responsive to Respondent's First Request for Production of Documents, without objection (all objections having been waived), within fourteen days of the date of the Court's order.
+
+      - Respondent further requests that the Court award Respondent her reasonable attorney's fees and costs incurred in bringing this motion, as authorized by the applicable rules where a motion to compel is granted and the opposing party's failure to respond was not substantially justified.
+
+      - Respondent reserves the right to seek additional sanctions, including evidentiary and terminating sanctions, in the event Petitioner continues to fail to comply with his discovery obligations following the entry of the Court's order.
+
+  - id: memorandum_of_law
+    title: Memorandum of Law in Support of Motion to Compel
+    output_file: output/memorandum_of_law.pdf
+    content:
+      - type: heading
+        content: Preliminary Statement
+
+      - type: paragraph
+        id: memo_intro_para
+        content: This memorandum of law is submitted in support of Respondent Margaret R. Holloway's Motion to Compel Discovery Responses. For the reasons set forth herein and in the motion, Respondent respectfully submits that Petitioner's wholesale refusal to comply with his discovery obligations is without legal justification, that all objections have been waived by virtue of Petitioner's untimely responses, and that an order compelling full compliance is warranted together with an award of fees and costs.
+
+      - content:
+          - "The factual background is set forth in detail in the accompanying Motion to Compel, at paragraphs "
+          - type: reference
+            ref: "@motion_to_compel/parties_para"
+          - " through "
+          - type: reference
+            ref: "@motion_to_compel/boilerplate_para"
+          - ". This memorandum focuses on the controlling legal authority."
+
+      - type: heading
+        content: Argument
+
+      - type: subheading
+        content: I. The Discovery Requests Are Facially Proper
+
+      - type: paragraph
+        id: facial_proper_para
+        content: Interrogatories and requests for production directed to the identification, valuation, and characterization of marital assets are squarely within the scope of permissible discovery in dissolution proceedings. Courts in this jurisdiction have consistently recognized that the broad discovery rules apply with full force in family law matters, and that a party's claimed privacy interest in financial records does not override the opposing party's right to obtain information necessary to the fair resolution of the proceedings.
+
+      - The requests at issue here seek information that goes to the heart of the contested issues in this case: the value and composition of the marital estate, the characterization of particular assets as marital or separate property, the income available to each party for support purposes, and whether any assets have been transferred or encumbered in a manner that affects the equitable distribution analysis.
+
+      - type: paragraph
+        id: proportionality_para
+        content: With respect to proportionality, the marital estate in this proceeding is estimated to have a total value in excess of four million dollars. The complexity of the estate — including two operating business entities, three parcels of real property, and multiple retirement and investment accounts — fully justifies the scope of the discovery requested. The burden on Petitioner of producing responsive documents is modest in comparison to the importance of that information to the fair resolution of these proceedings.
+
+      - type: subheading
+        content: II. Petitioner's Untimely Responses Constitute a Waiver of All Objections
+
+      - type: paragraph
+        id: waiver_para
+        content: The rule is well established that a party who fails to timely respond to interrogatories or requests for production waives all objections, including objections based on privilege. This rule serves the important policy of ensuring that the discovery process functions efficiently and that parties who fail to comply with their obligations bear the consequences of that failure.
+
+      - content:
+          - "Petitioner's responses were indisputably late. As established in the Motion to Compel at paragraph "
+          - type: reference
+            ref: "@motion_to_compel/late_response_para"
+          - ", Petitioner failed to respond by the 31MAR26 deadline and served responses five days later without seeking or obtaining an extension. No good cause for the delay has been offered."
+
+      - Courts have declined to excuse waiver where, as here, the responding party offers no explanation for the untimely response, no showing of inadvertence or mistake, and no demonstration that enforcing the waiver would work an injustice disproportionate to the transgression.
+
+      - type: subheading
+        content: III. Petitioner's Boilerplate Objections Are Legally Insufficient
+
+      - type: paragraph
+        id: boilerplate_law_para
+        content: Even if Petitioner's objections had been timely, they would fail as a matter of law. The requirement that objections be stated with specificity is not a technicality — it is a substantive prerequisite to a valid objection. A party asserting that a request is overbroad must explain what makes it overbroad. A party asserting undue burden must provide evidence of the burden. A party asserting privilege must produce a privilege log identifying each document withheld, the basis for the privilege claim, and sufficient information to allow the requesting party to assess the claim.
+
+      - content:
+          - "Petitioner's responses, described at paragraph "
+          - type: reference
+            ref: "@motion_to_compel/boilerplate_para"
+          - " of the Motion to Compel, satisfy none of these requirements. The objections are identical across dozens of separate requests, are unaccompanied by any privilege log, and are devoid of any factual basis. They should be overruled in their entirety."
+
+      - type: subheading
+        content: IV. An Award of Fees and Costs Is Warranted
+
+      - type: paragraph
+        id: fees_para
+        content: Where a motion to compel is granted, the Court must, after giving an opportunity to be heard, require the party whose conduct necessitated the motion to pay the movant's reasonable expenses incurred in making the motion, including attorney's fees, unless the Court finds that the motion was filed without a good-faith effort to obtain the discovery without court action, or that the opposing party's noncompliance was substantially justified, or that other circumstances make an award of expenses unjust.
+
+      - None of the exceptions to a mandatory fee award applies here. Respondent's counsel made extensive good-faith efforts to resolve this dispute before filing. Petitioner's noncompliance is not substantially justified — no justification of any kind has been offered. And there are no circumstances that would make an award of fees unjust; to the contrary, requiring Respondent to bear the cost of compelling compliance with basic discovery obligations that Petitioner was independently required to fulfill would itself be unjust.
+
+      - content:
+          - "Respondent requests fees consistent with the relief requested at paragraph "
+          - type: reference
+            ref: "@motion_to_compel/relief_para"
+          - " of the Motion to Compel."
+
+      - type: heading
+        content: Conclusion
+
+      - type: paragraph
+        id: memo_conclusion_para
+        content: For all of the foregoing reasons, Respondent respectfully requests that this Court grant the Motion to Compel in its entirety, enter an order requiring Petitioner to serve full and complete responses to all outstanding discovery within fourteen days, and award Respondent her reasonable attorney's fees and costs incurred in connection with this motion.
+
+  - id: declaration_of_counsel
+    title: Declaration of Counsel in Support of Motion to Compel
+    output_file: output/declaration_of_counsel.pdf
+    content:
+      - type: heading
+        content: Declaration
+
+      - type: paragraph
+        id: decl_intro_para
+        content: I, Sarah E. Whitmore, Esq., declare as follows under penalty of perjury under the laws of this jurisdiction that the following is true and correct to the best of my knowledge and belief.
+
+      - type: paragraph
+        id: decl_retention_para
+        content: I am an attorney at law duly licensed to practice in this jurisdiction. I am a partner at the law firm of Whitmore & Adeyemi, LLP, and I represent Respondent Margaret R. Holloway in the above-captioned proceeding. I have personal knowledge of the facts set forth in this declaration, except as to those matters stated on information and belief, and as to those matters I believe them to be true.
+
+      - type: heading
+        content: Service of Discovery
+
+      - type: paragraph
+        id: decl_service_para
+        content: On 01MAR26, I caused to be served upon Petitioner's counsel of record, James F. Carver, Esq., Respondent's First Set of Interrogatories and Respondent's First Request for Production of Documents. Service was effected by electronic transmission to Mr. Carver's email address of record and by first-class mail to his office address. A true and correct copy of the proof of service is attached hereto as Exhibit A.
+
+      - type: paragraph
+        id: decl_deadline_para
+        content: The deadline for Petitioner's responses to both sets of discovery was 31MAR26, thirty days after service, as required by the applicable rules. No extension of time was requested by Petitioner's counsel, and none was granted by me.
+
+      - type: heading
+        content: Good Faith Efforts to Meet and Confer
+
+      - type: paragraph
+        id: decl_letter1_para
+        content: On 05MAR26, I transmitted a letter to Mr. Carver confirming receipt of the discovery requests and inquiring whether Petitioner anticipated any difficulties in responding within the allotted time. Mr. Carver did not respond to that letter.
+
+      - type: paragraph
+        id: decl_letter2_para
+        content: On 15MAR26, I transmitted a follow-up letter to Mr. Carver again inquiring about the status of Petitioner's responses and reminding him of the 31MAR26 deadline. Mr. Carver responded by email on 17MAR26, stating only that he was "working on the responses" and would "be in touch."
+
+      - type: paragraph
+        id: decl_call_para
+        content: On 20MAR26, I participated in a telephone conference with Mr. Carver lasting approximately forty minutes. During that call, I requested that Mr. Carver identify any specific requests to which Petitioner intended to object and explain the basis for any such objections. Mr. Carver declined to identify specific objections, stating that he had not yet completed his review of the requests. I asked Mr. Carver to commit to a date by which Petitioner would provide complete responses. Mr. Carver declined to do so.
+
+      - type: paragraph
+        id: decl_letter3_para
+        content: On 28MAR26, three days before the response deadline, I transmitted a final meet-and-confer letter to Mr. Carver in which I stated that if complete responses were not received by 31MAR26, I would have no alternative but to file a motion to compel. Mr. Carver did not respond to that letter before the deadline.
+
+      - type: heading
+        content: Petitioner's Deficient Responses
+
+      - type: paragraph
+        id: decl_response_para
+        content: On 03APR26, five days after the response deadline, Mr. Carver transmitted via email Petitioner's Objections and Responses to Respondent's First Set of Interrogatories and First Request for Production of Documents. I have reviewed those responses in their entirety. A true and correct copy is attached hereto as Exhibit B.
+
+      - type: paragraph
+        id: decl_deficiency_para
+        content: Petitioner's responses to the interrogatories provide substantive answers to only seven of the twenty-four interrogatories propounded. The remaining seventeen responses consist solely of boilerplate objections asserting, without elaboration or specificity, that the interrogatories are overbroad, unduly burdensome, not reasonably calculated to lead to the discovery of admissible evidence, or seek privileged information. No privilege log was provided.
+
+      - Petitioner's responses to the requests for production state that Petitioner will produce documents responsive to four of the thirty-one requests. As of the date I execute this declaration, no documents have been produced in response to any of the requests.
+
+      - type: heading
+        content: Prejudice to Respondent
+
+      - type: paragraph
+        id: decl_prejudice_para
+        content: Respondent's financial disclosure in this proceeding is substantially complete. However, Respondent cannot independently verify the accuracy of Petitioner's income and asset disclosures without the bank records, tax returns, and business financial records sought in the discovery requests. The trial date is currently set for 15SEP26, and the discovery cutoff is 15JUL26. If Petitioner's compliance is not compelled promptly, Respondent will not have sufficient time to retain financial experts, complete valuations, and prepare for trial.
+
+      - content:
+          - "The urgency of this matter is underscored by the complexity of the estate described at paragraph "
+          - type: reference
+            ref: "@motion_to_compel/complexity_para"
+          - " of the Motion to Compel and the scope of the requests as set forth at paragraphs "
+          - type: reference
+            ref: "@motion_to_compel/interrogatories_para"
+          - " and "
+          - type: reference
+            ref: "@motion_to_compel/rfp_para"
+          - "."
+
+      - type: heading
+        content: Attestation
+
+      - type: paragraph
+        id: decl_attestation_para
+        content: I declare under penalty of perjury that the foregoing is true and correct. Executed on 28APR26 at this jurisdiction.
+
+  - id: proposed_order
+    title: Proposed Order Granting Motion to Compel
+    output_file: output/proposed_order.pdf
+    features:
+      - case_number
+      - date
+      - title
+    format:
+      defaults:
+        spacing:
+          after: 16
+    content:
+      - type: heading
+        content: Order Granting Respondent's Motion to Compel Discovery Responses
+
+      - type: paragraph
+        id: order_recitals_para
+        content: This matter came before the Court on Respondent Margaret R. Holloway's Motion to Compel Discovery Responses. The Court has considered the motion, the accompanying Memorandum of Law, the Declaration of Counsel, all papers filed in opposition thereto, and the arguments of counsel.
+
+      - THE COURT FINDS as follows:
+
+      - Respondent served Petitioner with Respondent's First Set of Interrogatories and Respondent's First Request for Production of Documents on 01MAR26. Petitioner's responses were due on 31MAR26.
+
+      - Petitioner failed to respond by the deadline and served untimely responses on 03APR26 without seeking or obtaining an extension of time.
+
+      - Petitioner's responses consist predominantly of boilerplate objections that fail to comply with the requirement that objections be stated with specificity. No privilege log was provided.
+
+      - Petitioner has waived all objections, including any claim of privilege, by virtue of the untimely responses.
+
+      - Respondent's counsel made good-faith efforts to resolve this dispute before filing the motion.
+
+      - Petitioner's failure to comply with his discovery obligations was not substantially justified.
+
+      - type: heading
+        content: Order
+
+      - type: paragraph
+        id: order_compel_para
+        content: IT IS HEREBY ORDERED that Respondent's Motion to Compel Discovery Responses is GRANTED in its entirety.
+
+      - type: paragraph
+        id: order_deadline_para
+        content: IT IS FURTHER ORDERED that Petitioner shall serve full, complete, and verified responses to Respondent's First Set of Interrogatories, without objection, within fourteen (14) days of the date of this Order.
+
+      - IT IS FURTHER ORDERED that Petitioner shall produce all documents responsive to Respondent's First Request for Production of Documents, without objection, within fourteen (14) days of the date of this Order.
+
+      - type: paragraph
+        id: order_fees_para
+        content: IT IS FURTHER ORDERED that Petitioner shall pay Respondent's reasonable attorney's fees and costs incurred in connection with the motion to compel. Respondent shall file a declaration of fees and costs within seven (7) days of this Order. Petitioner may file objections within seven (7) days thereafter. The Court will thereafter issue an order fixing the amount of fees and costs to be awarded.
+
+      - IT IS FURTHER ORDERED that failure to comply with this Order may result in the imposition of additional sanctions, including evidentiary sanctions, issue sanctions, or terminating sanctions.
+
+      - SO ORDERED.
+
+  - id: certificate_of_service
+    title: Certificate of Service
+    output_file: output/certificate_of_service.pdf
+    features:
+      - case_number
+      - date
+      - title
+    content:
+      - type: heading
+        content: Certificate of Service
+
+      - type: paragraph
+        id: cert_intro_para
+        content: I, Sarah E. Whitmore, Esq., hereby certify under penalty of perjury that on 28APR26, I caused a true and correct copy of each of the following documents to be served upon all parties of record by the methods indicated below.
+
+      - type: heading
+        content: Documents Served
+
+      - type: paragraph
+        id: cert_docs_para
+        content: The following documents were served in connection with this certificate.
+
+      - content:
+          - "1. "
+          - type: reference
+            ref: "@motion_to_compel/intro_para"
+            template: "{{title}} (see paragraph #{{paragraph}})"
+
+      - content:
+          - "2. "
+          - type: reference
+            ref: "@memorandum_of_law/memo_intro_para"
+            template: "{{title}} (see paragraph #{{paragraph}})"
+
+      - content:
+          - "3. "
+          - type: reference
+            ref: "@declaration_of_counsel/decl_intro_para"
+            template: "{{title}} (see paragraph #{{paragraph}})"
+
+      - content:
+          - "4. "
+          - type: reference
+            ref: "@proposed_order/order_recitals_para"
+            template: "{{title}} (see paragraph #{{paragraph}})"
+
+      - type: heading
+        content: Method of Service
+
+      - type: paragraph
+        id: cert_method_para
+        content: Service was effected by electronic transmission to counsel of record for Petitioner, James F. Carver, Esq., at his email address of record, jcarver@carverlaw.com. In addition, a true and correct copy of each document was deposited in the United States mail, first class, postage prepaid, addressed to Mr. Carver at his office address of record.
+
+      - type: paragraph
+        id: cert_attestation_para
+        content: I declare under penalty of perjury that the foregoing is true and correct. Executed on 28APR26.
