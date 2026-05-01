@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}}</title>
+  <style>
+    {{{css}}}
+    {{#if features.pageNumbers}}
+    @page {
+      @bottom-center {
+        content: "Page " counter(page) " of " counter(pages);
+      }
+    }
+    {{/if}}
+  </style>
+  <style media="screen">
+    @media screen {
+      .pagedjs_page {
+        box-shadow: 0 0 0 1px rgba(0, 0,0,0.2);
+      }
+    }
+  </style>
+  <script src="https://unpkg.com/pagedjs@0.4.3/dist/paged.js"></script>
+  <script>
+    let previewer = new Paged.Previewer();
+    window.addEventListener('DOMContentLoaded', async () => {
+      await previewer.preview()
+      {{!-- window.print() --}}
+    });
+  </script>
+</head>
+<body>
+  <div id="metadata">
+    <div id="top-left">
+      <div class="document-title">{{title}}</div>
+      {{#if properties.author}}
+      <div class="document-meta">Author: {{properties.author.name}} ({{properties.author.role}})</div>
+      {{/if}}
+      {{#if properties.submitted_by}}
+      <div class="document-meta">Submitted by: {{properties.submitted_by.name}} ({{properties.submitted_by.role}})</div>
+      {{/if}}
+    </div>
+    <div id="top-right">
+      {{#if properties.case_number}}
+      <div class="document-meta">Case Number: {{properties.case_number}}</div>
+      {{/if}}
+      {{#if properties.date}}
+      <div class="document-meta">Date: {{formatDate properties.date}}</div>
+      {{/if}}
+    </div>
+    <div id="bottom-right">
+      <div class="initials-field">
+        <div class="initials-section">
+          <div
+          <div class="initials-row">
+            <div class="initials-column">
+              <div class="initials-line">Applicant</div>
+            </div>
+            <div class="initials-column">
+              <div class="initials-line">Respondent</div>
+            </div>
+          </div>
+          <div class="initials-row">
+            <div class="initials-column">
+              <div class="initials-line">Counsel</div>
+            </div>
+            <div class="initials-column">
+              <div class="initials-line">Counsel</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="document-content">
+    {{#each content}}
+      {{#if type}}
+        {{#if (eq type "heading")}}
+        <div class="heading">
+          <div class="heading-title">{{text}}</div>
+          {{#if subTitle}}
+          <div class="heading-subtitle">{{subTitle}}</div>
+          {{/if}}
+        </div>
+        {{/if}}
+      {{else}}
+        <div class="paragraph">{{this}}</div>
+      {{/if}}
+    {{/each}}
+  </div>
+</body>
+</html>

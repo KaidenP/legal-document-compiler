@@ -1,0 +1,164 @@
+diff --git a/node_modules/shell/index.d.ts b/node_modules/shell/index.d.ts
+new file mode 100644
+index 0000000..6944a55
+--- /dev/null
++++ b/node_modules/shell/index.d.ts
+@@ -0,0 +1,147 @@
++import * as stream from "stream";
++
++export interface ShellConfig {
++  name?: string;
++  description?: string;
++  extended?: boolean;
++  command?: string;
++  strict?: boolean;
++  load?: string | ((module: string, namespace?: string) => Promise<any>);
++  router?: RouterConfig;
++  handler?: string | RouteHandler;
++  commands?: Record<string, ShellConfig>;
++  options?: Record<string, OptionConfig>;
++  main?: MainConfig | string | null;
++  plugins?: Plugin[];
++  root?: boolean;
++  help?: boolean;
++  shortcuts?: Record<string, string>;
++}
++
++export interface RouterConfig {
++  error_message?: boolean;
++  error_stack?: boolean;
++  error_help?: boolean;
++  exit?: boolean;
++  handler?: string | RouteHandler;
++  promise?: boolean;
++  stdin?: stream.Readable;
++  stdout?: stream.Writable;
++  stdout_end?: boolean;
++  stderr?: stream.Writable;
++  stderr_end?: boolean;
++}
++
++export interface MainConfig {
++  name?: string;
++  required?: boolean | ((context: MainContext) => boolean);
++}
++
++export interface OptionConfig {
++  name?: string;
++  type?: "string" | "boolean" | "integer" | "array";
++  default?: any;
++  enum?: string[] | string;
++  required?: boolean | ((context: OptionContext) => boolean);
++  shortcut?: string;
++  cascade?: boolean | number;
++  disabled?: boolean;
++  transient?: boolean;
++  help?: boolean;
++  description?: string;
++}
++
++export interface MainContext {
++  config: ShellConfig;
++  command?: string;
++}
++
++export interface OptionContext {
++  config: ShellConfig;
++  command?: string;
++}
++
++export interface RouteContext {
++  stdin?: stream.Readable;
++  stdout?: stream.Writable;
++  stdout_end?: boolean;
++  stderr?: stream.Writable;
++  stderr_end?: boolean;
++  argv?: string[];
++  command: string[];
++  error?: Error | null;
++  params: Record<string, any>;
++  args?: any[];
++  [key: string]: any;
++}
++
++export type RouteHandler = (context: RouteContext, ...args: any[]) => any;
++
++export interface Plugin {
++  name: string;
++  hooks?: Record<string, any>;
++  [key: string]: any;
++}
++
++export interface ParsedParams {
++  [key: string]: any;
++}
++
++export interface ParseOptions {
++  extended?: boolean;
++}
++
++export interface CompileOptions {
++  extended?: boolean;
++  script?: string;
++}
++
++export interface ConfigBuilder {
++  main(): MainBuilder;
++  options(): OptionsBuilder;
++  get(): ShellConfig;
++  set(value: Partial<ShellConfig> | Partial<ShellConfig>[]): ConfigBuilder;
++  raw(): ShellConfig;
++}
++
++export interface MainBuilder {
++  get(): MainConfig | undefined;
++  set(value: MainConfig | string | null | undefined): MainBuilder;
++}
++
++export interface OptionsBuilder {
++  (name: string): OptionBuilder;
++  get_cascaded(): Record<string, OptionConfig>;
++  show(): Record<string, OptionConfig>;
++  list(): string[];
++}
++
++export interface OptionBuilder {
++  get(properties?: string | string[]): OptionConfig;
++  remove(name: string): boolean;
++  set(options: Record<string, any>): OptionBuilder;
++  set(name: string, value: any): OptionBuilder;
++}
++
++export class Shell {
++  constructor(config?: ShellConfig);
++  plugins: any;
++  collision: Record<string, string[]>;
++  config(command?: string | string[]): ConfigBuilder;
++  route(context?: string[] | RouteContext, ...args: any[]): Promise<any>;
++  parse(argv?: string[] | NodeJS.Process, options?: ParseOptions): ParsedParams;
++  compile(data: Record<string, any>, options?: CompileOptions): string[];
++  helping(params: ParsedParams, options?: any): string[] | undefined;
++  help(command?: string[], options?: any): string;
++  load(module: string, namespace?: string): Promise<any>;
++}
++
++export function shell(config?: ShellConfig): Shell;
++
++export namespace utils {
++  function error(message: string | string[]): Error & { command?: string[] };
++  function load(module: string, namespace?: string): Promise<any>;
++  function filedirname(url: string): { __dirname: string; __filename: string };
++}
++
++export { Shell as default };
+diff --git a/node_modules/shell/routes/help.d.ts b/node_modules/shell/routes/help.d.ts
+new file mode 100644
+index 0000000..6b10642
+--- /dev/null
++++ b/node_modules/shell/routes/help.d.ts
+@@ -0,0 +1,5 @@
++import { RouteContext, RouteHandler } from "../index";
++
++declare const helpRoute: RouteHandler;
++
++export default helpRoute;

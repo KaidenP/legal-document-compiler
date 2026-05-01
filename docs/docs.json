@@ -1,0 +1,6831 @@
+{
+	"schemaVersion": "2.0",
+	"id": 0,
+	"name": "legal-doc-compiler",
+	"variant": "project",
+	"kind": 1,
+	"flags": {},
+	"children": [
+		{
+			"id": 231,
+			"name": "bin/legal-doc-gen",
+			"variant": "declaration",
+			"kind": 2,
+			"flags": {},
+			"sources": [
+				{
+					"fileName": "bin/legal-doc-gen.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 228,
+			"name": "compile-doc",
+			"variant": "declaration",
+			"kind": 2,
+			"flags": {},
+			"children": [
+				{
+					"id": 384,
+					"name": "default",
+					"variant": "declaration",
+					"kind": 64,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "compile-doc.ts",
+							"line": 27,
+							"character": 0
+						}
+					],
+					"signatures": [
+						{
+							"id": 385,
+							"name": "default",
+							"variant": "signature",
+							"kind": 4096,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "compile-doc.ts",
+									"line": 27,
+									"character": 0
+								}
+							],
+							"parameters": [
+								{
+									"id": 386,
+									"name": "__namedParameters",
+									"variant": "param",
+									"kind": 32768,
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"target": {
+											"packageName": "shell",
+											"packagePath": "index.d.ts",
+											"qualifiedName": "RouteContext"
+										},
+										"name": "RouteContext",
+										"package": "shell"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"target": {
+									"packageName": "typescript",
+									"packagePath": "lib/lib.es5.d.ts",
+									"qualifiedName": "Promise"
+								},
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "void"
+									}
+								],
+								"name": "Promise",
+								"package": "typescript"
+							}
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"children": [
+						384
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "compile-doc.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 229,
+			"name": "example-gen",
+			"variant": "declaration",
+			"kind": 2,
+			"flags": {},
+			"children": [
+				{
+					"id": 387,
+					"name": "default",
+					"variant": "declaration",
+					"kind": 64,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "example-gen.ts",
+							"line": 97,
+							"character": 0
+						}
+					],
+					"signatures": [
+						{
+							"id": 388,
+							"name": "default",
+							"variant": "signature",
+							"kind": 4096,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "example-gen.ts",
+									"line": 97,
+									"character": 0
+								}
+							],
+							"parameters": [
+								{
+									"id": 389,
+									"name": "__namedParameters",
+									"variant": "param",
+									"kind": 32768,
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"target": {
+											"packageName": "shell",
+											"packagePath": "index.d.ts",
+											"qualifiedName": "RouteContext"
+										},
+										"name": "RouteContext",
+										"package": "shell"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"target": {
+									"packageName": "typescript",
+									"packagePath": "lib/lib.es5.d.ts",
+									"qualifiedName": "Promise"
+								},
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "void"
+									}
+								],
+								"name": "Promise",
+								"package": "typescript"
+							}
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"children": [
+						387
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "example-gen.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 1,
+			"name": "inputSchema",
+			"variant": "declaration",
+			"kind": 2,
+			"flags": {},
+			"comment": {
+				"summary": [
+					{
+						"kind": "text",
+						"text": "Input schema definitions for legal document compilation.\nDefines Zod validators and types for document structure, metadata, and content."
+					}
+				],
+				"blockTags": [
+					{
+						"tag": "@sortStrategy",
+						"content": [
+							{
+								"kind": "text",
+								"text": "source-order"
+							}
+						]
+					}
+				]
+			},
+			"children": [
+				{
+					"id": 2,
+					"name": "EntryType",
+					"variant": "declaration",
+					"kind": 32,
+					"flags": {
+						"isConst": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Entry type enumeration: either 'globals' for global settings or 'document' for actual documents."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "inputSchema.ts",
+							"line": 14,
+							"character": 13
+						},
+						{
+							"fileName": "inputSchema.ts",
+							"line": 15,
+							"character": 12
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": {
+							"packageName": "zod",
+							"packagePath": "v4/classic/schemas.d.cts",
+							"qualifiedName": "ZodEnum"
+						},
+						"typeArguments": [
+							{
+								"type": "reference",
+								"target": 6,
+								"name": "EntryType"
+							}
+						],
+						"name": "ZodEnum",
+						"package": "zod"
+					},
+					"defaultValue": "..."
+				},
+				{
+					"id": 6,
+					"name": "EntryType",
+					"variant": "declaration",
+					"kind": 2097152,
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Entry type enumeration: either 'globals' for global settings or 'document' for actual documents."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "inputSchema.ts",
+							"line": 14,
+							"character": 13
+						},
+						{
+							"fileName": "inputSchema.ts",
+							"line": 15,
+							"character": 12
+						}
+					],
+					"type": {
+						"type": "union",
+						"types": [
+							{
+								"type": "literal",
+								"value": "globals"
+							},
+							{
+								"type": "literal",
+								"value": "document"
+							}
+						]
+					}
+				},
+				{
+					"id": 7,
+					"name": "EntryID",
+					"variant": "declaration",
+					"kind": 32,
+					"flags": {
+						"isConst": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Entry ID: either a GUID or arbitrary string identifier for document entries."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "inputSchema.ts",
+							"line": 20,
+							"character": 13
+						},
+						{
+							"fileName": "inputSchema.ts",
+							"line": 21,
+							"character": 12
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": {
+							"packageName": "zod",
+							"packagePath": "v4/classic/schemas.d.cts",
+							"qualifiedName": "ZodUnion"
+						},
+						"typeArguments": [
+							{
+								"type": "reference",
+								"target": 8,
+								"name": "EntryID"
+							}
+						],
+						"name": "ZodUnion",
+						"package": "zod"
+					},
+					"defaultValue": "..."
+				},
+				{
+					"id": 8,
+					"name": "EntryID",
+					"variant": "declaration",
+					"kind": 2097152,
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Entry ID: either a GUID or arbitrary string identifier for document entries."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "inputSchema.ts",
+							"line": 20,
+							"character": 13
+						},
+						{
+							"fileName": "inputSchema.ts",
+							"line": 21,
+							"character": 12
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 9,
+					"name": "AuthorRole",
+					"variant": "declaration",
+					"kind": 32,
+					"flags": {
+						"isConst": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Author role in legal document: either 'Respondent' or 'Applicant'."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "inputSchema.ts",
+							"line": 26,
+							"character": 13
+						},
+						{
+							"fileName": "inputSchema.ts",
+							"line": 27,
+							"character": 12
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": {
+							"packageName": "zod",
+							"packagePath": "v4/classic/schemas.d.cts",
+							"qualifiedName": "ZodEnum"
+						},
+						"typeArguments": [
+							{
+								"type": "reference",
+								"target": 14,
+								"name": "AuthorRole"
+							}
+						],
+						"name": "ZodEnum",
+						"package": "zod"
+					},
+					"defaultValue": "..."
+				},
+				{
+					"id": 14,
+					"name": "AuthorRole",
+					"variant": "declaration",
+					"kind": 2097152,
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Author role in legal document: either 'Respondent' or 'Applicant'."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "inputSchema.ts",
+							"line": 26,
+							"character": 13
+						},
+						{
+							"fileName": "inputSchema.ts",
+							"line": 27,
+							"character": 12
+						}
+					],
+					"type": {
+						"type": "union",
+						"types": [
+							{
+								"type": "literal",
+								"value": "Respondent"
+							},
+							{
+								"type": "literal",
+								"value": "Applicant"
+							},
+							{
+								"type": "literal",
+								"value": "Third-Party"
+							}
+						]
+					}
+				},
+				{
+					"id": 15,
+					"name": "Author",
+					"variant": "declaration",
+					"kind": 32,
+					"flags": {
+						"isConst": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Author information including role and name."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "inputSchema.ts",
+							"line": 32,
+							"character": 13
+						},
+						{
+							"fileName": "inputSchema.ts",
+							"line": 38,
+							"character": 12
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": {
+							"packageName": "zod",
+							"packagePath": "v4/classic/schemas.d.cts",
+							"qualifiedName": "ZodObject"
+						},
+						"typeArguments": [
+							{
+								"type": "reference",
+								"target": 23,
+								"name": "Author"
+							}
+						],
+						"name": "ZodObject",
+						"package": "zod"
+					},
+					"defaultValue": "..."
+				},
+				{
+					"id": 23,
+					"name": "Author",
+					"variant": "declaration",
+					"kind": 2097152,
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Author information including role and name."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "inputSchema.ts",
+							"line": 32,
+							"character": 13
+						},
+						{
+							"fileName": "inputSchema.ts",
+							"line": 38,
+							"character": 12
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 232,
+							"name": "__type",
+							"variant": "declaration",
+							"kind": 65536,
+							"flags": {},
+							"children": [
+								{
+									"id": 234,
+									"name": "name",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Full name of the author"
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "inputSchema.ts",
+											"line": 36,
+											"character": 2
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "..."
+								},
+								{
+									"id": 233,
+									"name": "role",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "The role of the author (Respondent or Applicant) See: "
+											},
+											{
+												"kind": "inline-tag",
+												"tag": "@link",
+												"text": "`AuthorRole`",
+												"target": 14
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "inputSchema.ts",
+											"line": 34,
+											"character": 2
+										}
+									],
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "literal",
+												"value": "Respondent"
+											},
+											{
+												"type": "literal",
+												"value": "Applicant"
+											},
+											{
+												"type": "literal",
+												"value": "Third-Party"
+											}
+										]
+									},
+									"defaultValue": "AuthorRole"
+								}
+							],
+							"groups": [
+								{
+									"title": "Properties",
+									"children": [
+										234,
+										233
+									]
+								}
+							]
+						}
+					}
+				},
+				{
+					"id": 24,
+					"name": "DocumentProperties",
+					"variant": "declaration",
+					"kind": 32,
+					"flags": {
+						"isConst": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Document properties containing metadata about the legal document."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "inputSchema.ts",
+							"line": 43,
+							"character": 13
+						},
+						{
+							"fileName": "inputSchema.ts",
+							"line": 57,
+							"character": 12
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": {
+							"packageName": "zod",
+							"packagePath": "v4/classic/schemas.d.cts",
+							"qualifiedName": "ZodObject"
+						},
+						"typeArguments": [
+							{
+								"type": "reference",
+								"target": 46,
+								"name": "DocumentProperties"
+							}
+						],
+						"name": "ZodObject",
+						"package": "zod"
+					},
+					"defaultValue": "..."
+				},
+				{
+					"id": 46,
+					"name": "DocumentProperties",
+					"variant": "declaration",
+					"kind": 2097152,
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Document properties containing metadata about the legal document."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "inputSchema.ts",
+							"line": 43,
+							"character": 13
+						},
+						{
+							"fileName": "inputSchema.ts",
+							"line": 57,
+							"character": 12
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 235,
+							"name": "__type",
+							"variant": "declaration",
+							"kind": 65536,
+							"flags": {},
+							"children": [
+								{
+									"id": 240,
+									"name": "author",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Optional author information See: "
+											},
+											{
+												"kind": "inline-tag",
+												"tag": "@link",
+												"text": "`Author`",
+												"target": 23
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "inputSchema.ts",
+											"line": 53,
+											"character": 2
+										}
+									],
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 241,
+											"name": "__type",
+											"variant": "declaration",
+											"kind": 65536,
+											"flags": {},
+											"children": [
+												{
+													"id": 243,
+													"name": "name",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "Full name of the author"
+															}
+														]
+													},
+													"sources": [
+														{
+															"fileName": "inputSchema.ts",
+															"line": 36,
+															"character": 2
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													},
+													"defaultValue": "..."
+												},
+												{
+													"id": 242,
+													"name": "role",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "The role of the author (Respondent or Applicant) See: "
+															},
+															{
+																"kind": "inline-tag",
+																"tag": "@link",
+																"text": "`AuthorRole`",
+																"target": 14
+															}
+														]
+													},
+													"sources": [
+														{
+															"fileName": "inputSchema.ts",
+															"line": 34,
+															"character": 2
+														}
+													],
+													"type": {
+														"type": "union",
+														"types": [
+															{
+																"type": "literal",
+																"value": "Respondent"
+															},
+															{
+																"type": "literal",
+																"value": "Applicant"
+															},
+															{
+																"type": "literal",
+																"value": "Third-Party"
+															}
+														]
+													},
+													"defaultValue": "AuthorRole"
+												}
+											],
+											"groups": [
+												{
+													"title": "Properties",
+													"children": [
+														243,
+														242
+													]
+												}
+											]
+										}
+									},
+									"defaultValue": "..."
+								},
+								{
+									"id": 238,
+									"name": "case_name",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Optional case/reference number"
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "inputSchema.ts",
+											"line": 49,
+											"character": 2
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "..."
+								},
+								{
+									"id": 237,
+									"name": "case_number",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Optional case/reference number"
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "inputSchema.ts",
+											"line": 47,
+											"character": 2
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "..."
+								},
+								{
+									"id": 239,
+									"name": "date",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Optional document date"
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "inputSchema.ts",
+											"line": 51,
+											"character": 2
+										}
+									],
+									"type": {
+										"type": "reference",
+										"target": {
+											"packageName": "typescript",
+											"packagePath": "lib/lib.es5.d.ts",
+											"qualifiedName": "Date"
+										},
+										"name": "Date",
+										"package": "typescript"
+									},
+									"defaultValue": "..."
+								},
+								{
+									"id": 244,
+									"name": "submitted_by",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Optional submission information See: "
+											},
+											{
+												"kind": "inline-tag",
+												"tag": "@link",
+												"text": "`Author`",
+												"target": 23
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "inputSchema.ts",
+											"line": 55,
+											"character": 2
+										}
+									],
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 245,
+											"name": "__type",
+											"variant": "declaration",
+											"kind": 65536,
+											"flags": {},
+											"children": [
+												{
+													"id": 247,
+													"name": "name",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "Full name of the author"
+															}
+														]
+													},
+													"sources": [
+														{
+															"fileName": "inputSchema.ts",
+															"line": 36,
+															"character": 2
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													},
+													"defaultValue": "..."
+												},
+												{
+													"id": 246,
+													"name": "role",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "The role of the author (Respondent or Applicant) See: "
+															},
+															{
+																"kind": "inline-tag",
+																"tag": "@link",
+																"text": "`AuthorRole`",
+																"target": 14
+															}
+														]
+													},
+													"sources": [
+														{
+															"fileName": "inputSchema.ts",
+															"line": 34,
+															"character": 2
+														}
+													],
+													"type": {
+														"type": "union",
+														"types": [
+															{
+																"type": "literal",
+																"value": "Respondent"
+															},
+															{
+																"type": "literal",
+																"value": "Applicant"
+															},
+															{
+																"type": "literal",
+																"value": "Third-Party"
+															}
+														]
+													},
+													"defaultValue": "AuthorRole"
+												}
+											],
+											"groups": [
+												{
+													"title": "Properties",
+													"children": [
+														247,
+														246
+													]
+												}
+											]
+										}
+									},
+									"defaultValue": "..."
+								},
+								{
+									"id": 236,
+									"name": "title",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Optional document title"
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "inputSchema.ts",
+											"line": 45,
+											"character": 2
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "..."
+								}
+							],
+							"groups": [
+								{
+									"title": "Properties",
+									"children": [
+										240,
+										238,
+										237,
+										239,
+										244,
+										236
+									]
+								}
+							]
+						}
+					}
+				},
+				{
+					"id": 47,
+					"name": "Version",
+					"variant": "declaration",
+					"kind": 32,
+					"flags": {
+						"isConst": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Version string following semantic versioning (0.0.x format)."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "inputSchema.ts",
+							"line": 62,
+							"character": 13
+						},
+						{
+							"fileName": "inputSchema.ts",
+							"line": 63,
+							"character": 12
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": {
+							"packageName": "zod",
+							"packagePath": "v4/classic/schemas.d.cts",
+							"qualifiedName": "ZodCustomStringFormat"
+						},
+						"typeArguments": [
+							{
+								"type": "reference",
+								"target": 48,
+								"name": "Version"
+							}
+						],
+						"name": "ZodCustomStringFormat",
+						"package": "zod"
+					},
+					"defaultValue": "..."
+				},
+				{
+					"id": 48,
+					"name": "Version",
+					"variant": "declaration",
+					"kind": 2097152,
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Version string following semantic versioning (0.0.x format)."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "inputSchema.ts",
+							"line": 62,
+							"character": 13
+						},
+						{
+							"fileName": "inputSchema.ts",
+							"line": 63,
+							"character": 12
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 49,
+					"name": "DocumentFeatures",
+					"variant": "declaration",
+					"kind": 32,
+					"flags": {
+						"isConst": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Configuration options that control document rendering features."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "inputSchema.ts",
+							"line": 68,
+							"character": 13
+						},
+						{
+							"fileName": "inputSchema.ts",
+							"line": 77,
+							"character": 12
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": {
+							"packageName": "zod",
+							"packagePath": "v4/classic/schemas.d.cts",
+							"qualifiedName": "ZodObject"
+						},
+						"typeArguments": [
+							{
+								"type": "reference",
+								"target": 52,
+								"name": "DocumentFeatures"
+							}
+						],
+						"name": "ZodObject",
+						"package": "zod"
+					},
+					"defaultValue": "..."
+				},
+				{
+					"id": 52,
+					"name": "DocumentFeatures",
+					"variant": "declaration",
+					"kind": 2097152,
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Type definition for document features configuration."
+							}
+						],
+						"blockTags": [
+							{
+								"tag": "@see",
+								"content": [
+									{
+										"kind": "inline-tag",
+										"tag": "@link",
+										"text": "DocumentFeatures",
+										"target": 49
+									}
+								]
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "inputSchema.ts",
+							"line": 68,
+							"character": 13
+						},
+						{
+							"fileName": "inputSchema.ts",
+							"line": 77,
+							"character": 12
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 248,
+							"name": "__type",
+							"variant": "declaration",
+							"kind": 65536,
+							"flags": {},
+							"children": [
+								{
+									"id": 249,
+									"name": "pageNumbers",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Whether to display page numbers in the rendered document"
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "inputSchema.ts",
+											"line": 70,
+											"character": 2
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "boolean"
+									},
+									"defaultValue": "..."
+								}
+							],
+							"groups": [
+								{
+									"title": "Properties",
+									"children": [
+										249
+									]
+								}
+							]
+						}
+					}
+				},
+				{
+					"id": 53,
+					"name": "DocumentOptions",
+					"variant": "declaration",
+					"kind": 32,
+					"flags": {
+						"isConst": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Base document options including version, type, and optional properties."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "inputSchema.ts",
+							"line": 82,
+							"character": 13
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": {
+							"packageName": "zod",
+							"packagePath": "v4/classic/schemas.d.cts",
+							"qualifiedName": "ZodObject"
+						},
+						"typeArguments": [
+							{
+								"type": "reference",
+								"target": 85,
+								"name": "Options"
+							}
+						],
+						"name": "ZodObject",
+						"package": "zod"
+					},
+					"defaultValue": "..."
+				},
+				{
+					"id": 85,
+					"name": "Options",
+					"variant": "declaration",
+					"kind": 2097152,
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Base document options including version, type, and optional properties."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "inputSchema.ts",
+							"line": 92,
+							"character": 12
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 250,
+							"name": "__type",
+							"variant": "declaration",
+							"kind": 65536,
+							"flags": {},
+							"children": [
+								{
+									"id": 267,
+									"name": "features",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Document rendering features configuration. See: "
+											},
+											{
+												"kind": "inline-tag",
+												"tag": "@link",
+												"text": "`DocumentFeatures`",
+												"target": 52
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "inputSchema.ts",
+											"line": 90,
+											"character": 2
+										}
+									],
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 268,
+											"name": "__type",
+											"variant": "declaration",
+											"kind": 65536,
+											"flags": {},
+											"children": [
+												{
+													"id": 269,
+													"name": "pageNumbers",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {
+														"isOptional": true
+													},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "Whether to display page numbers in the rendered document"
+															}
+														]
+													},
+													"sources": [
+														{
+															"fileName": "inputSchema.ts",
+															"line": 70,
+															"character": 2
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "boolean"
+													},
+													"defaultValue": "..."
+												}
+											],
+											"groups": [
+												{
+													"title": "Properties",
+													"children": [
+														269
+													]
+												}
+											]
+										}
+									},
+									"defaultValue": "..."
+								},
+								{
+									"id": 253,
+									"name": "properties",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Optional document properties See: "
+											},
+											{
+												"kind": "inline-tag",
+												"tag": "@link",
+												"text": "`DocumentProperties`",
+												"target": 46
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "inputSchema.ts",
+											"line": 88,
+											"character": 2
+										}
+									],
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 254,
+											"name": "__type",
+											"variant": "declaration",
+											"kind": 65536,
+											"flags": {},
+											"children": [
+												{
+													"id": 259,
+													"name": "author",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {
+														"isOptional": true
+													},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "Optional author information See: "
+															},
+															{
+																"kind": "inline-tag",
+																"tag": "@link",
+																"text": "`Author`",
+																"target": 23
+															}
+														]
+													},
+													"sources": [
+														{
+															"fileName": "inputSchema.ts",
+															"line": 53,
+															"character": 2
+														}
+													],
+													"type": {
+														"type": "reflection",
+														"declaration": {
+															"id": 260,
+															"name": "__type",
+															"variant": "declaration",
+															"kind": 65536,
+															"flags": {},
+															"children": [
+																{
+																	"id": 262,
+																	"name": "name",
+																	"variant": "declaration",
+																	"kind": 1024,
+																	"flags": {},
+																	"comment": {
+																		"summary": [
+																			{
+																				"kind": "text",
+																				"text": "Full name of the author"
+																			}
+																		]
+																	},
+																	"sources": [
+																		{
+																			"fileName": "inputSchema.ts",
+																			"line": 36,
+																			"character": 2
+																		}
+																	],
+																	"type": {
+																		"type": "intrinsic",
+																		"name": "string"
+																	},
+																	"defaultValue": "..."
+																},
+																{
+																	"id": 261,
+																	"name": "role",
+																	"variant": "declaration",
+																	"kind": 1024,
+																	"flags": {},
+																	"comment": {
+																		"summary": [
+																			{
+																				"kind": "text",
+																				"text": "The role of the author (Respondent or Applicant) See: "
+																			},
+																			{
+																				"kind": "inline-tag",
+																				"tag": "@link",
+																				"text": "`AuthorRole`",
+																				"target": 14
+																			}
+																		]
+																	},
+																	"sources": [
+																		{
+																			"fileName": "inputSchema.ts",
+																			"line": 34,
+																			"character": 2
+																		}
+																	],
+																	"type": {
+																		"type": "union",
+																		"types": [
+																			{
+																				"type": "literal",
+																				"value": "Respondent"
+																			},
+																			{
+																				"type": "literal",
+																				"value": "Applicant"
+																			},
+																			{
+																				"type": "literal",
+																				"value": "Third-Party"
+																			}
+																		]
+																	},
+																	"defaultValue": "AuthorRole"
+																}
+															],
+															"groups": [
+																{
+																	"title": "Properties",
+																	"children": [
+																		262,
+																		261
+																	]
+																}
+															]
+														}
+													},
+													"defaultValue": "..."
+												},
+												{
+													"id": 257,
+													"name": "case_name",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {
+														"isOptional": true
+													},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "Optional case/reference number"
+															}
+														]
+													},
+													"sources": [
+														{
+															"fileName": "inputSchema.ts",
+															"line": 49,
+															"character": 2
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													},
+													"defaultValue": "..."
+												},
+												{
+													"id": 256,
+													"name": "case_number",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {
+														"isOptional": true
+													},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "Optional case/reference number"
+															}
+														]
+													},
+													"sources": [
+														{
+															"fileName": "inputSchema.ts",
+															"line": 47,
+															"character": 2
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													},
+													"defaultValue": "..."
+												},
+												{
+													"id": 258,
+													"name": "date",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {
+														"isOptional": true
+													},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "Optional document date"
+															}
+														]
+													},
+													"sources": [
+														{
+															"fileName": "inputSchema.ts",
+															"line": 51,
+															"character": 2
+														}
+													],
+													"type": {
+														"type": "reference",
+														"target": {
+															"packageName": "typescript",
+															"packagePath": "lib/lib.es5.d.ts",
+															"qualifiedName": "Date"
+														},
+														"name": "Date",
+														"package": "typescript"
+													},
+													"defaultValue": "..."
+												},
+												{
+													"id": 263,
+													"name": "submitted_by",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {
+														"isOptional": true
+													},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "Optional submission information See: "
+															},
+															{
+																"kind": "inline-tag",
+																"tag": "@link",
+																"text": "`Author`",
+																"target": 23
+															}
+														]
+													},
+													"sources": [
+														{
+															"fileName": "inputSchema.ts",
+															"line": 55,
+															"character": 2
+														}
+													],
+													"type": {
+														"type": "reflection",
+														"declaration": {
+															"id": 264,
+															"name": "__type",
+															"variant": "declaration",
+															"kind": 65536,
+															"flags": {},
+															"children": [
+																{
+																	"id": 266,
+																	"name": "name",
+																	"variant": "declaration",
+																	"kind": 1024,
+																	"flags": {},
+																	"comment": {
+																		"summary": [
+																			{
+																				"kind": "text",
+																				"text": "Full name of the author"
+																			}
+																		]
+																	},
+																	"sources": [
+																		{
+																			"fileName": "inputSchema.ts",
+																			"line": 36,
+																			"character": 2
+																		}
+																	],
+																	"type": {
+																		"type": "intrinsic",
+																		"name": "string"
+																	},
+																	"defaultValue": "..."
+																},
+																{
+																	"id": 265,
+																	"name": "role",
+																	"variant": "declaration",
+																	"kind": 1024,
+																	"flags": {},
+																	"comment": {
+																		"summary": [
+																			{
+																				"kind": "text",
+																				"text": "The role of the author (Respondent or Applicant) See: "
+																			},
+																			{
+																				"kind": "inline-tag",
+																				"tag": "@link",
+																				"text": "`AuthorRole`",
+																				"target": 14
+																			}
+																		]
+																	},
+																	"sources": [
+																		{
+																			"fileName": "inputSchema.ts",
+																			"line": 34,
+																			"character": 2
+																		}
+																	],
+																	"type": {
+																		"type": "union",
+																		"types": [
+																			{
+																				"type": "literal",
+																				"value": "Respondent"
+																			},
+																			{
+																				"type": "literal",
+																				"value": "Applicant"
+																			},
+																			{
+																				"type": "literal",
+																				"value": "Third-Party"
+																			}
+																		]
+																	},
+																	"defaultValue": "AuthorRole"
+																}
+															],
+															"groups": [
+																{
+																	"title": "Properties",
+																	"children": [
+																		266,
+																		265
+																	]
+																}
+															]
+														}
+													},
+													"defaultValue": "..."
+												},
+												{
+													"id": 255,
+													"name": "title",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {
+														"isOptional": true
+													},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "Optional document title"
+															}
+														]
+													},
+													"sources": [
+														{
+															"fileName": "inputSchema.ts",
+															"line": 45,
+															"character": 2
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													},
+													"defaultValue": "..."
+												}
+											],
+											"groups": [
+												{
+													"title": "Properties",
+													"children": [
+														259,
+														257,
+														256,
+														258,
+														263,
+														255
+													]
+												}
+											]
+										}
+									},
+									"defaultValue": "..."
+								},
+								{
+									"id": 252,
+									"name": "type",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Type of entry (globals or document) See: "
+											},
+											{
+												"kind": "inline-tag",
+												"tag": "@link",
+												"text": "`EntryType`",
+												"target": 6
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "inputSchema.ts",
+											"line": 86,
+											"character": 2
+										}
+									],
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "literal",
+												"value": "globals"
+											},
+											{
+												"type": "literal",
+												"value": "document"
+											}
+										]
+									},
+									"defaultValue": "EntryType"
+								},
+								{
+									"id": 251,
+									"name": "version",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Document version following semantic versioning See: "
+											},
+											{
+												"kind": "inline-tag",
+												"tag": "@link",
+												"text": "`Version`",
+												"target": 48
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "inputSchema.ts",
+											"line": 84,
+											"character": 2
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "Version"
+								}
+							],
+							"groups": [
+								{
+									"title": "Properties",
+									"children": [
+										267,
+										253,
+										252,
+										251
+									]
+								}
+							]
+						}
+					}
+				},
+				{
+					"id": 86,
+					"name": "Globals",
+					"variant": "declaration",
+					"kind": 32,
+					"flags": {
+						"isConst": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Global settings entry extending DocumentOptions with type literal 'globals'."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "inputSchema.ts",
+							"line": 97,
+							"character": 13
+						},
+						{
+							"fileName": "inputSchema.ts",
+							"line": 100,
+							"character": 12
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": {
+							"packageName": "zod",
+							"packagePath": "v4/classic/schemas.d.cts",
+							"qualifiedName": "ZodObject"
+						},
+						"typeArguments": [
+							{
+								"type": "reference",
+								"target": 115,
+								"name": "Globals"
+							}
+						],
+						"name": "ZodObject",
+						"package": "zod"
+					},
+					"defaultValue": "..."
+				},
+				{
+					"id": 115,
+					"name": "Globals",
+					"variant": "declaration",
+					"kind": 2097152,
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Global settings entry extending DocumentOptions with type literal 'globals'."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "inputSchema.ts",
+							"line": 97,
+							"character": 13
+						},
+						{
+							"fileName": "inputSchema.ts",
+							"line": 100,
+							"character": 12
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 270,
+							"name": "__type",
+							"variant": "declaration",
+							"kind": 65536,
+							"flags": {},
+							"children": [
+								{
+									"id": 287,
+									"name": "features",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Document rendering features configuration. See: "
+											},
+											{
+												"kind": "inline-tag",
+												"tag": "@link",
+												"text": "`DocumentFeatures`",
+												"target": 52
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "inputSchema.ts",
+											"line": 90,
+											"character": 2
+										}
+									],
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 288,
+											"name": "__type",
+											"variant": "declaration",
+											"kind": 65536,
+											"flags": {},
+											"children": [
+												{
+													"id": 289,
+													"name": "pageNumbers",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {
+														"isOptional": true
+													},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "Whether to display page numbers in the rendered document"
+															}
+														]
+													},
+													"sources": [
+														{
+															"fileName": "inputSchema.ts",
+															"line": 70,
+															"character": 2
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "boolean"
+													},
+													"defaultValue": "..."
+												}
+											],
+											"groups": [
+												{
+													"title": "Properties",
+													"children": [
+														289
+													]
+												}
+											]
+										}
+									},
+									"defaultValue": "..."
+								},
+								{
+									"id": 273,
+									"name": "properties",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Optional document properties See: "
+											},
+											{
+												"kind": "inline-tag",
+												"tag": "@link",
+												"text": "`DocumentProperties`",
+												"target": 46
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "inputSchema.ts",
+											"line": 88,
+											"character": 2
+										}
+									],
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 274,
+											"name": "__type",
+											"variant": "declaration",
+											"kind": 65536,
+											"flags": {},
+											"children": [
+												{
+													"id": 279,
+													"name": "author",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {
+														"isOptional": true
+													},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "Optional author information See: "
+															},
+															{
+																"kind": "inline-tag",
+																"tag": "@link",
+																"text": "`Author`",
+																"target": 23
+															}
+														]
+													},
+													"sources": [
+														{
+															"fileName": "inputSchema.ts",
+															"line": 53,
+															"character": 2
+														}
+													],
+													"type": {
+														"type": "reflection",
+														"declaration": {
+															"id": 280,
+															"name": "__type",
+															"variant": "declaration",
+															"kind": 65536,
+															"flags": {},
+															"children": [
+																{
+																	"id": 282,
+																	"name": "name",
+																	"variant": "declaration",
+																	"kind": 1024,
+																	"flags": {},
+																	"comment": {
+																		"summary": [
+																			{
+																				"kind": "text",
+																				"text": "Full name of the author"
+																			}
+																		]
+																	},
+																	"sources": [
+																		{
+																			"fileName": "inputSchema.ts",
+																			"line": 36,
+																			"character": 2
+																		}
+																	],
+																	"type": {
+																		"type": "intrinsic",
+																		"name": "string"
+																	},
+																	"defaultValue": "..."
+																},
+																{
+																	"id": 281,
+																	"name": "role",
+																	"variant": "declaration",
+																	"kind": 1024,
+																	"flags": {},
+																	"comment": {
+																		"summary": [
+																			{
+																				"kind": "text",
+																				"text": "The role of the author (Respondent or Applicant) See: "
+																			},
+																			{
+																				"kind": "inline-tag",
+																				"tag": "@link",
+																				"text": "`AuthorRole`",
+																				"target": 14
+																			}
+																		]
+																	},
+																	"sources": [
+																		{
+																			"fileName": "inputSchema.ts",
+																			"line": 34,
+																			"character": 2
+																		}
+																	],
+																	"type": {
+																		"type": "union",
+																		"types": [
+																			{
+																				"type": "literal",
+																				"value": "Respondent"
+																			},
+																			{
+																				"type": "literal",
+																				"value": "Applicant"
+																			},
+																			{
+																				"type": "literal",
+																				"value": "Third-Party"
+																			}
+																		]
+																	},
+																	"defaultValue": "AuthorRole"
+																}
+															],
+															"groups": [
+																{
+																	"title": "Properties",
+																	"children": [
+																		282,
+																		281
+																	]
+																}
+															]
+														}
+													},
+													"defaultValue": "..."
+												},
+												{
+													"id": 277,
+													"name": "case_name",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {
+														"isOptional": true
+													},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "Optional case/reference number"
+															}
+														]
+													},
+													"sources": [
+														{
+															"fileName": "inputSchema.ts",
+															"line": 49,
+															"character": 2
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													},
+													"defaultValue": "..."
+												},
+												{
+													"id": 276,
+													"name": "case_number",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {
+														"isOptional": true
+													},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "Optional case/reference number"
+															}
+														]
+													},
+													"sources": [
+														{
+															"fileName": "inputSchema.ts",
+															"line": 47,
+															"character": 2
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													},
+													"defaultValue": "..."
+												},
+												{
+													"id": 278,
+													"name": "date",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {
+														"isOptional": true
+													},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "Optional document date"
+															}
+														]
+													},
+													"sources": [
+														{
+															"fileName": "inputSchema.ts",
+															"line": 51,
+															"character": 2
+														}
+													],
+													"type": {
+														"type": "reference",
+														"target": {
+															"packageName": "typescript",
+															"packagePath": "lib/lib.es5.d.ts",
+															"qualifiedName": "Date"
+														},
+														"name": "Date",
+														"package": "typescript"
+													},
+													"defaultValue": "..."
+												},
+												{
+													"id": 283,
+													"name": "submitted_by",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {
+														"isOptional": true
+													},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "Optional submission information See: "
+															},
+															{
+																"kind": "inline-tag",
+																"tag": "@link",
+																"text": "`Author`",
+																"target": 23
+															}
+														]
+													},
+													"sources": [
+														{
+															"fileName": "inputSchema.ts",
+															"line": 55,
+															"character": 2
+														}
+													],
+													"type": {
+														"type": "reflection",
+														"declaration": {
+															"id": 284,
+															"name": "__type",
+															"variant": "declaration",
+															"kind": 65536,
+															"flags": {},
+															"children": [
+																{
+																	"id": 286,
+																	"name": "name",
+																	"variant": "declaration",
+																	"kind": 1024,
+																	"flags": {},
+																	"comment": {
+																		"summary": [
+																			{
+																				"kind": "text",
+																				"text": "Full name of the author"
+																			}
+																		]
+																	},
+																	"sources": [
+																		{
+																			"fileName": "inputSchema.ts",
+																			"line": 36,
+																			"character": 2
+																		}
+																	],
+																	"type": {
+																		"type": "intrinsic",
+																		"name": "string"
+																	},
+																	"defaultValue": "..."
+																},
+																{
+																	"id": 285,
+																	"name": "role",
+																	"variant": "declaration",
+																	"kind": 1024,
+																	"flags": {},
+																	"comment": {
+																		"summary": [
+																			{
+																				"kind": "text",
+																				"text": "The role of the author (Respondent or Applicant) See: "
+																			},
+																			{
+																				"kind": "inline-tag",
+																				"tag": "@link",
+																				"text": "`AuthorRole`",
+																				"target": 14
+																			}
+																		]
+																	},
+																	"sources": [
+																		{
+																			"fileName": "inputSchema.ts",
+																			"line": 34,
+																			"character": 2
+																		}
+																	],
+																	"type": {
+																		"type": "union",
+																		"types": [
+																			{
+																				"type": "literal",
+																				"value": "Respondent"
+																			},
+																			{
+																				"type": "literal",
+																				"value": "Applicant"
+																			},
+																			{
+																				"type": "literal",
+																				"value": "Third-Party"
+																			}
+																		]
+																	},
+																	"defaultValue": "AuthorRole"
+																}
+															],
+															"groups": [
+																{
+																	"title": "Properties",
+																	"children": [
+																		286,
+																		285
+																	]
+																}
+															]
+														}
+													},
+													"defaultValue": "..."
+												},
+												{
+													"id": 275,
+													"name": "title",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {
+														"isOptional": true
+													},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "Optional document title"
+															}
+														]
+													},
+													"sources": [
+														{
+															"fileName": "inputSchema.ts",
+															"line": 45,
+															"character": 2
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													},
+													"defaultValue": "..."
+												}
+											],
+											"groups": [
+												{
+													"title": "Properties",
+													"children": [
+														279,
+														277,
+														276,
+														278,
+														283,
+														275
+													]
+												}
+											]
+										}
+									},
+									"defaultValue": "..."
+								},
+								{
+									"id": 272,
+									"name": "type",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "inputSchema.ts",
+											"line": 98,
+											"character": 2
+										}
+									],
+									"type": {
+										"type": "literal",
+										"value": "globals"
+									},
+									"defaultValue": "..."
+								},
+								{
+									"id": 271,
+									"name": "version",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Document version following semantic versioning See: "
+											},
+											{
+												"kind": "inline-tag",
+												"tag": "@link",
+												"text": "`Version`",
+												"target": 48
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "inputSchema.ts",
+											"line": 84,
+											"character": 2
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "Version"
+								}
+							],
+							"groups": [
+								{
+									"title": "Properties",
+									"children": [
+										287,
+										273,
+										272,
+										271
+									]
+								}
+							]
+						}
+					}
+				},
+				{
+					"id": 116,
+					"name": "ContentHeading",
+					"variant": "declaration",
+					"kind": 32,
+					"flags": {
+						"isConst": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Heading content element for document structure."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "inputSchema.ts",
+							"line": 105,
+							"character": 13
+						},
+						{
+							"fileName": "inputSchema.ts",
+							"line": 112,
+							"character": 12
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": {
+							"packageName": "zod",
+							"packagePath": "v4/classic/schemas.d.cts",
+							"qualifiedName": "ZodObject"
+						},
+						"typeArguments": [
+							{
+								"type": "reference",
+								"target": 121,
+								"name": "ContentHeading"
+							}
+						],
+						"name": "ZodObject",
+						"package": "zod"
+					},
+					"defaultValue": "..."
+				},
+				{
+					"id": 121,
+					"name": "ContentHeading",
+					"variant": "declaration",
+					"kind": 2097152,
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Heading content element for document structure."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "inputSchema.ts",
+							"line": 105,
+							"character": 13
+						},
+						{
+							"fileName": "inputSchema.ts",
+							"line": 112,
+							"character": 12
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 290,
+							"name": "__type",
+							"variant": "declaration",
+							"kind": 65536,
+							"flags": {},
+							"children": [
+								{
+									"id": 293,
+									"name": "subTitle",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"sources": [
+										{
+											"fileName": "inputSchema.ts",
+											"line": 110,
+											"character": 2
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "..."
+								},
+								{
+									"id": 292,
+									"name": "text",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "The heading text"
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "inputSchema.ts",
+											"line": 109,
+											"character": 2
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "..."
+								},
+								{
+									"id": 291,
+									"name": "type",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Content type identifier"
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "inputSchema.ts",
+											"line": 107,
+											"character": 2
+										}
+									],
+									"type": {
+										"type": "literal",
+										"value": "heading"
+									},
+									"defaultValue": "..."
+								}
+							],
+							"groups": [
+								{
+									"title": "Properties",
+									"children": [
+										293,
+										292,
+										291
+									]
+								}
+							]
+						}
+					}
+				},
+				{
+					"id": 122,
+					"name": "ContentParagraph",
+					"variant": "declaration",
+					"kind": 32,
+					"flags": {
+						"isConst": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Paragraph content element: either a plain string or an object with explicit paragraph type."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "inputSchema.ts",
+							"line": 117,
+							"character": 13
+						},
+						{
+							"fileName": "inputSchema.ts",
+							"line": 124,
+							"character": 12
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": {
+							"packageName": "zod",
+							"packagePath": "v4/classic/schemas.d.cts",
+							"qualifiedName": "ZodUnion"
+						},
+						"typeArguments": [
+							{
+								"type": "reference",
+								"target": 126,
+								"name": "ContentParagraph"
+							}
+						],
+						"name": "ZodUnion",
+						"package": "zod"
+					},
+					"defaultValue": "..."
+				},
+				{
+					"id": 126,
+					"name": "ContentParagraph",
+					"variant": "declaration",
+					"kind": 2097152,
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Paragraph content element: either a plain string or an object with explicit paragraph type."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "inputSchema.ts",
+							"line": 117,
+							"character": 13
+						},
+						{
+							"fileName": "inputSchema.ts",
+							"line": 124,
+							"character": 12
+						}
+					],
+					"type": {
+						"type": "union",
+						"types": [
+							{
+								"type": "intrinsic",
+								"name": "string"
+							},
+							{
+								"type": "reflection",
+								"declaration": {
+									"id": 294,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"children": [
+										{
+											"id": 296,
+											"name": "text",
+											"variant": "declaration",
+											"kind": 1024,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "inputSchema.ts",
+													"line": 121,
+													"character": 4
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											},
+											"defaultValue": "..."
+										},
+										{
+											"id": 295,
+											"name": "type",
+											"variant": "declaration",
+											"kind": 1024,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "inputSchema.ts",
+													"line": 120,
+													"character": 4
+												}
+											],
+											"type": {
+												"type": "literal",
+												"value": "paragraph"
+											},
+											"defaultValue": "..."
+										}
+									],
+									"groups": [
+										{
+											"title": "Properties",
+											"children": [
+												296,
+												295
+											]
+										}
+									]
+								}
+							}
+						]
+					}
+				},
+				{
+					"id": 127,
+					"name": "Content",
+					"variant": "declaration",
+					"kind": 32,
+					"flags": {
+						"isConst": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Union of all content element types: headings, subheadings, and paragraphs.\n\nSee:\n- "
+							},
+							{
+								"kind": "inline-tag",
+								"tag": "@link",
+								"text": "ContentHeading",
+								"target": 116
+							},
+							{
+								"kind": "text",
+								"text": "\n- "
+							},
+							{
+								"kind": "inline-tag",
+								"tag": "@link",
+								"text": "ContentParagraph",
+								"target": 122
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "inputSchema.ts",
+							"line": 133,
+							"character": 13
+						},
+						{
+							"fileName": "inputSchema.ts",
+							"line": 137,
+							"character": 12
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": {
+							"packageName": "zod",
+							"packagePath": "v4/classic/schemas.d.cts",
+							"qualifiedName": "ZodUnion"
+						},
+						"typeArguments": [
+							{
+								"type": "reference",
+								"target": 135,
+								"name": "Content"
+							}
+						],
+						"name": "ZodUnion",
+						"package": "zod"
+					},
+					"defaultValue": "..."
+				},
+				{
+					"id": 135,
+					"name": "Content",
+					"variant": "declaration",
+					"kind": 2097152,
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Union of all content element types: headings, subheadings, and paragraphs.\n\nSee:\n- "
+							},
+							{
+								"kind": "inline-tag",
+								"tag": "@link",
+								"text": "ContentHeading",
+								"target": 116
+							},
+							{
+								"kind": "text",
+								"text": "\n- "
+							},
+							{
+								"kind": "inline-tag",
+								"tag": "@link",
+								"text": "ContentParagraph",
+								"target": 122
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "inputSchema.ts",
+							"line": 133,
+							"character": 13
+						},
+						{
+							"fileName": "inputSchema.ts",
+							"line": 137,
+							"character": 12
+						}
+					],
+					"type": {
+						"type": "union",
+						"types": [
+							{
+								"type": "intrinsic",
+								"name": "string"
+							},
+							{
+								"type": "reflection",
+								"declaration": {
+									"id": 297,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"children": [
+										{
+											"id": 300,
+											"name": "subTitle",
+											"variant": "declaration",
+											"kind": 1024,
+											"flags": {
+												"isOptional": true
+											},
+											"sources": [
+												{
+													"fileName": "inputSchema.ts",
+													"line": 110,
+													"character": 2
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											},
+											"defaultValue": "..."
+										},
+										{
+											"id": 299,
+											"name": "text",
+											"variant": "declaration",
+											"kind": 1024,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "The heading text"
+													}
+												]
+											},
+											"sources": [
+												{
+													"fileName": "inputSchema.ts",
+													"line": 109,
+													"character": 2
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											},
+											"defaultValue": "..."
+										},
+										{
+											"id": 298,
+											"name": "type",
+											"variant": "declaration",
+											"kind": 1024,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "Content type identifier"
+													}
+												]
+											},
+											"sources": [
+												{
+													"fileName": "inputSchema.ts",
+													"line": 107,
+													"character": 2
+												}
+											],
+											"type": {
+												"type": "literal",
+												"value": "heading"
+											},
+											"defaultValue": "..."
+										}
+									],
+									"groups": [
+										{
+											"title": "Properties",
+											"children": [
+												300,
+												299,
+												298
+											]
+										}
+									]
+								}
+							},
+							{
+								"type": "reflection",
+								"declaration": {
+									"id": 301,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"children": [
+										{
+											"id": 303,
+											"name": "text",
+											"variant": "declaration",
+											"kind": 1024,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "inputSchema.ts",
+													"line": 121,
+													"character": 4
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											},
+											"defaultValue": "..."
+										},
+										{
+											"id": 302,
+											"name": "type",
+											"variant": "declaration",
+											"kind": 1024,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "inputSchema.ts",
+													"line": 120,
+													"character": 4
+												}
+											],
+											"type": {
+												"type": "literal",
+												"value": "paragraph"
+											},
+											"defaultValue": "..."
+										}
+									],
+									"groups": [
+										{
+											"title": "Properties",
+											"children": [
+												303,
+												302
+											]
+										}
+									]
+								}
+							}
+						]
+					}
+				},
+				{
+					"id": 136,
+					"name": "Document",
+					"variant": "declaration",
+					"kind": 32,
+					"flags": {
+						"isConst": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Complete legal document definition extending DocumentOptions."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "inputSchema.ts",
+							"line": 142,
+							"character": 13
+						},
+						{
+							"fileName": "inputSchema.ts",
+							"line": 152,
+							"character": 12
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": {
+							"packageName": "zod",
+							"packagePath": "v4/classic/schemas.d.cts",
+							"qualifiedName": "ZodObject"
+						},
+						"typeArguments": [
+							{
+								"type": "reference",
+								"target": 175,
+								"name": "Document"
+							}
+						],
+						"name": "ZodObject",
+						"package": "zod"
+					},
+					"defaultValue": "..."
+				},
+				{
+					"id": 175,
+					"name": "Document",
+					"variant": "declaration",
+					"kind": 2097152,
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Complete legal document definition extending DocumentOptions."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "inputSchema.ts",
+							"line": 142,
+							"character": 13
+						},
+						{
+							"fileName": "inputSchema.ts",
+							"line": 152,
+							"character": 12
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 304,
+							"name": "__type",
+							"variant": "declaration",
+							"kind": 65536,
+							"flags": {},
+							"children": [
+								{
+									"id": 308,
+									"name": "content",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Array of content elements (headings, subheadings, paragraphs) See: "
+											},
+											{
+												"kind": "inline-tag",
+												"tag": "@link",
+												"text": "`Content`",
+												"target": 135
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "inputSchema.ts",
+											"line": 149,
+											"character": 2
+										}
+									],
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "union",
+											"types": [
+												{
+													"type": "intrinsic",
+													"name": "string"
+												},
+												{
+													"type": "reflection",
+													"declaration": {
+														"id": 309,
+														"name": "__type",
+														"variant": "declaration",
+														"kind": 65536,
+														"flags": {},
+														"children": [
+															{
+																"id": 312,
+																"name": "subTitle",
+																"variant": "declaration",
+																"kind": 1024,
+																"flags": {
+																	"isOptional": true
+																},
+																"sources": [
+																	{
+																		"fileName": "inputSchema.ts",
+																		"line": 110,
+																		"character": 2
+																	}
+																],
+																"type": {
+																	"type": "intrinsic",
+																	"name": "string"
+																},
+																"defaultValue": "..."
+															},
+															{
+																"id": 311,
+																"name": "text",
+																"variant": "declaration",
+																"kind": 1024,
+																"flags": {},
+																"comment": {
+																	"summary": [
+																		{
+																			"kind": "text",
+																			"text": "The heading text"
+																		}
+																	]
+																},
+																"sources": [
+																	{
+																		"fileName": "inputSchema.ts",
+																		"line": 109,
+																		"character": 2
+																	}
+																],
+																"type": {
+																	"type": "intrinsic",
+																	"name": "string"
+																},
+																"defaultValue": "..."
+															},
+															{
+																"id": 310,
+																"name": "type",
+																"variant": "declaration",
+																"kind": 1024,
+																"flags": {},
+																"comment": {
+																	"summary": [
+																		{
+																			"kind": "text",
+																			"text": "Content type identifier"
+																		}
+																	]
+																},
+																"sources": [
+																	{
+																		"fileName": "inputSchema.ts",
+																		"line": 107,
+																		"character": 2
+																	}
+																],
+																"type": {
+																	"type": "literal",
+																	"value": "heading"
+																},
+																"defaultValue": "..."
+															}
+														],
+														"groups": [
+															{
+																"title": "Properties",
+																"children": [
+																	312,
+																	311,
+																	310
+																]
+															}
+														]
+													}
+												},
+												{
+													"type": "reflection",
+													"declaration": {
+														"id": 313,
+														"name": "__type",
+														"variant": "declaration",
+														"kind": 65536,
+														"flags": {},
+														"children": [
+															{
+																"id": 315,
+																"name": "text",
+																"variant": "declaration",
+																"kind": 1024,
+																"flags": {},
+																"sources": [
+																	{
+																		"fileName": "inputSchema.ts",
+																		"line": 121,
+																		"character": 4
+																	}
+																],
+																"type": {
+																	"type": "intrinsic",
+																	"name": "string"
+																},
+																"defaultValue": "..."
+															},
+															{
+																"id": 314,
+																"name": "type",
+																"variant": "declaration",
+																"kind": 1024,
+																"flags": {},
+																"sources": [
+																	{
+																		"fileName": "inputSchema.ts",
+																		"line": 120,
+																		"character": 4
+																	}
+																],
+																"type": {
+																	"type": "literal",
+																	"value": "paragraph"
+																},
+																"defaultValue": "..."
+															}
+														],
+														"groups": [
+															{
+																"title": "Properties",
+																"children": [
+																	315,
+																	314
+																]
+															}
+														]
+													}
+												}
+											]
+										}
+									},
+									"defaultValue": "..."
+								},
+								{
+									"id": 330,
+									"name": "features",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Document rendering features configuration. See: "
+											},
+											{
+												"kind": "inline-tag",
+												"tag": "@link",
+												"text": "`DocumentFeatures`",
+												"target": 52
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "inputSchema.ts",
+											"line": 90,
+											"character": 2
+										}
+									],
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 331,
+											"name": "__type",
+											"variant": "declaration",
+											"kind": 65536,
+											"flags": {},
+											"children": [
+												{
+													"id": 332,
+													"name": "pageNumbers",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {
+														"isOptional": true
+													},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "Whether to display page numbers in the rendered document"
+															}
+														]
+													},
+													"sources": [
+														{
+															"fileName": "inputSchema.ts",
+															"line": 70,
+															"character": 2
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "boolean"
+													},
+													"defaultValue": "..."
+												}
+											],
+											"groups": [
+												{
+													"title": "Properties",
+													"children": [
+														332
+													]
+												}
+											]
+										}
+									},
+									"defaultValue": "..."
+								},
+								{
+									"id": 333,
+									"name": "id",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Unique identifier (auto-generated UUID if not provided) See: "
+											},
+											{
+												"kind": "inline-tag",
+												"tag": "@link",
+												"text": "`EntryID`",
+												"target": 8
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "inputSchema.ts",
+											"line": 145,
+											"character": 2
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "..."
+								},
+								{
+									"id": 316,
+									"name": "properties",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Optional document properties See: "
+											},
+											{
+												"kind": "inline-tag",
+												"tag": "@link",
+												"text": "`DocumentProperties`",
+												"target": 46
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "inputSchema.ts",
+											"line": 88,
+											"character": 2
+										}
+									],
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 317,
+											"name": "__type",
+											"variant": "declaration",
+											"kind": 65536,
+											"flags": {},
+											"children": [
+												{
+													"id": 322,
+													"name": "author",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {
+														"isOptional": true
+													},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "Optional author information See: "
+															},
+															{
+																"kind": "inline-tag",
+																"tag": "@link",
+																"text": "`Author`",
+																"target": 23
+															}
+														]
+													},
+													"sources": [
+														{
+															"fileName": "inputSchema.ts",
+															"line": 53,
+															"character": 2
+														}
+													],
+													"type": {
+														"type": "reflection",
+														"declaration": {
+															"id": 323,
+															"name": "__type",
+															"variant": "declaration",
+															"kind": 65536,
+															"flags": {},
+															"children": [
+																{
+																	"id": 325,
+																	"name": "name",
+																	"variant": "declaration",
+																	"kind": 1024,
+																	"flags": {},
+																	"comment": {
+																		"summary": [
+																			{
+																				"kind": "text",
+																				"text": "Full name of the author"
+																			}
+																		]
+																	},
+																	"sources": [
+																		{
+																			"fileName": "inputSchema.ts",
+																			"line": 36,
+																			"character": 2
+																		}
+																	],
+																	"type": {
+																		"type": "intrinsic",
+																		"name": "string"
+																	},
+																	"defaultValue": "..."
+																},
+																{
+																	"id": 324,
+																	"name": "role",
+																	"variant": "declaration",
+																	"kind": 1024,
+																	"flags": {},
+																	"comment": {
+																		"summary": [
+																			{
+																				"kind": "text",
+																				"text": "The role of the author (Respondent or Applicant) See: "
+																			},
+																			{
+																				"kind": "inline-tag",
+																				"tag": "@link",
+																				"text": "`AuthorRole`",
+																				"target": 14
+																			}
+																		]
+																	},
+																	"sources": [
+																		{
+																			"fileName": "inputSchema.ts",
+																			"line": 34,
+																			"character": 2
+																		}
+																	],
+																	"type": {
+																		"type": "union",
+																		"types": [
+																			{
+																				"type": "literal",
+																				"value": "Respondent"
+																			},
+																			{
+																				"type": "literal",
+																				"value": "Applicant"
+																			},
+																			{
+																				"type": "literal",
+																				"value": "Third-Party"
+																			}
+																		]
+																	},
+																	"defaultValue": "AuthorRole"
+																}
+															],
+															"groups": [
+																{
+																	"title": "Properties",
+																	"children": [
+																		325,
+																		324
+																	]
+																}
+															]
+														}
+													},
+													"defaultValue": "..."
+												},
+												{
+													"id": 320,
+													"name": "case_name",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {
+														"isOptional": true
+													},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "Optional case/reference number"
+															}
+														]
+													},
+													"sources": [
+														{
+															"fileName": "inputSchema.ts",
+															"line": 49,
+															"character": 2
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													},
+													"defaultValue": "..."
+												},
+												{
+													"id": 319,
+													"name": "case_number",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {
+														"isOptional": true
+													},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "Optional case/reference number"
+															}
+														]
+													},
+													"sources": [
+														{
+															"fileName": "inputSchema.ts",
+															"line": 47,
+															"character": 2
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													},
+													"defaultValue": "..."
+												},
+												{
+													"id": 321,
+													"name": "date",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {
+														"isOptional": true
+													},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "Optional document date"
+															}
+														]
+													},
+													"sources": [
+														{
+															"fileName": "inputSchema.ts",
+															"line": 51,
+															"character": 2
+														}
+													],
+													"type": {
+														"type": "reference",
+														"target": {
+															"packageName": "typescript",
+															"packagePath": "lib/lib.es5.d.ts",
+															"qualifiedName": "Date"
+														},
+														"name": "Date",
+														"package": "typescript"
+													},
+													"defaultValue": "..."
+												},
+												{
+													"id": 326,
+													"name": "submitted_by",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {
+														"isOptional": true
+													},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "Optional submission information See: "
+															},
+															{
+																"kind": "inline-tag",
+																"tag": "@link",
+																"text": "`Author`",
+																"target": 23
+															}
+														]
+													},
+													"sources": [
+														{
+															"fileName": "inputSchema.ts",
+															"line": 55,
+															"character": 2
+														}
+													],
+													"type": {
+														"type": "reflection",
+														"declaration": {
+															"id": 327,
+															"name": "__type",
+															"variant": "declaration",
+															"kind": 65536,
+															"flags": {},
+															"children": [
+																{
+																	"id": 329,
+																	"name": "name",
+																	"variant": "declaration",
+																	"kind": 1024,
+																	"flags": {},
+																	"comment": {
+																		"summary": [
+																			{
+																				"kind": "text",
+																				"text": "Full name of the author"
+																			}
+																		]
+																	},
+																	"sources": [
+																		{
+																			"fileName": "inputSchema.ts",
+																			"line": 36,
+																			"character": 2
+																		}
+																	],
+																	"type": {
+																		"type": "intrinsic",
+																		"name": "string"
+																	},
+																	"defaultValue": "..."
+																},
+																{
+																	"id": 328,
+																	"name": "role",
+																	"variant": "declaration",
+																	"kind": 1024,
+																	"flags": {},
+																	"comment": {
+																		"summary": [
+																			{
+																				"kind": "text",
+																				"text": "The role of the author (Respondent or Applicant) See: "
+																			},
+																			{
+																				"kind": "inline-tag",
+																				"tag": "@link",
+																				"text": "`AuthorRole`",
+																				"target": 14
+																			}
+																		]
+																	},
+																	"sources": [
+																		{
+																			"fileName": "inputSchema.ts",
+																			"line": 34,
+																			"character": 2
+																		}
+																	],
+																	"type": {
+																		"type": "union",
+																		"types": [
+																			{
+																				"type": "literal",
+																				"value": "Respondent"
+																			},
+																			{
+																				"type": "literal",
+																				"value": "Applicant"
+																			},
+																			{
+																				"type": "literal",
+																				"value": "Third-Party"
+																			}
+																		]
+																	},
+																	"defaultValue": "AuthorRole"
+																}
+															],
+															"groups": [
+																{
+																	"title": "Properties",
+																	"children": [
+																		329,
+																		328
+																	]
+																}
+															]
+														}
+													},
+													"defaultValue": "..."
+												},
+												{
+													"id": 318,
+													"name": "title",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {
+														"isOptional": true
+													},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "Optional document title"
+															}
+														]
+													},
+													"sources": [
+														{
+															"fileName": "inputSchema.ts",
+															"line": 45,
+															"character": 2
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													},
+													"defaultValue": "..."
+												}
+											],
+											"groups": [
+												{
+													"title": "Properties",
+													"children": [
+														322,
+														320,
+														319,
+														321,
+														326,
+														318
+													]
+												}
+											]
+										}
+									},
+									"defaultValue": "..."
+								},
+								{
+									"id": 307,
+									"name": "title",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Document title (required)"
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "inputSchema.ts",
+											"line": 147,
+											"character": 2
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "..."
+								},
+								{
+									"id": 306,
+									"name": "type",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "inputSchema.ts",
+											"line": 143,
+											"character": 2
+										}
+									],
+									"type": {
+										"type": "literal",
+										"value": "document"
+									},
+									"defaultValue": "..."
+								},
+								{
+									"id": 305,
+									"name": "version",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Document version following semantic versioning See: "
+											},
+											{
+												"kind": "inline-tag",
+												"tag": "@link",
+												"text": "`Version`",
+												"target": 48
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "inputSchema.ts",
+											"line": 84,
+											"character": 2
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "Version"
+								}
+							],
+							"groups": [
+								{
+									"title": "Properties",
+									"children": [
+										308,
+										330,
+										333,
+										316,
+										307,
+										306,
+										305
+									]
+								}
+							]
+						}
+					}
+				},
+				{
+					"id": 176,
+					"name": "Input",
+					"variant": "declaration",
+					"kind": 32,
+					"flags": {
+						"isConst": true
+					},
+					"sources": [
+						{
+							"fileName": "inputSchema.ts",
+							"line": 154,
+							"character": 13
+						},
+						{
+							"fileName": "inputSchema.ts",
+							"line": 155,
+							"character": 12
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": {
+							"packageName": "zod",
+							"packagePath": "v4/classic/schemas.d.cts",
+							"qualifiedName": "ZodUnion"
+						},
+						"typeArguments": [
+							{
+								"type": "reference",
+								"target": 227,
+								"name": "Input"
+							}
+						],
+						"name": "ZodUnion",
+						"package": "zod"
+					},
+					"defaultValue": "..."
+				},
+				{
+					"id": 227,
+					"name": "Input",
+					"variant": "declaration",
+					"kind": 2097152,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "inputSchema.ts",
+							"line": 154,
+							"character": 13
+						},
+						{
+							"fileName": "inputSchema.ts",
+							"line": 155,
+							"character": 12
+						}
+					],
+					"type": {
+						"type": "union",
+						"types": [
+							{
+								"type": "reflection",
+								"declaration": {
+									"id": 334,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"children": [
+										{
+											"id": 351,
+											"name": "features",
+											"variant": "declaration",
+											"kind": 1024,
+											"flags": {
+												"isOptional": true
+											},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "Document rendering features configuration. See: "
+													},
+													{
+														"kind": "inline-tag",
+														"tag": "@link",
+														"text": "`DocumentFeatures`",
+														"target": 52
+													}
+												]
+											},
+											"sources": [
+												{
+													"fileName": "inputSchema.ts",
+													"line": 90,
+													"character": 2
+												}
+											],
+											"type": {
+												"type": "reflection",
+												"declaration": {
+													"id": 352,
+													"name": "__type",
+													"variant": "declaration",
+													"kind": 65536,
+													"flags": {},
+													"children": [
+														{
+															"id": 353,
+															"name": "pageNumbers",
+															"variant": "declaration",
+															"kind": 1024,
+															"flags": {
+																"isOptional": true
+															},
+															"comment": {
+																"summary": [
+																	{
+																		"kind": "text",
+																		"text": "Whether to display page numbers in the rendered document"
+																	}
+																]
+															},
+															"sources": [
+																{
+																	"fileName": "inputSchema.ts",
+																	"line": 70,
+																	"character": 2
+																}
+															],
+															"type": {
+																"type": "intrinsic",
+																"name": "boolean"
+															},
+															"defaultValue": "..."
+														}
+													],
+													"groups": [
+														{
+															"title": "Properties",
+															"children": [
+																353
+															]
+														}
+													]
+												}
+											},
+											"defaultValue": "..."
+										},
+										{
+											"id": 337,
+											"name": "properties",
+											"variant": "declaration",
+											"kind": 1024,
+											"flags": {
+												"isOptional": true
+											},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "Optional document properties See: "
+													},
+													{
+														"kind": "inline-tag",
+														"tag": "@link",
+														"text": "`DocumentProperties`",
+														"target": 46
+													}
+												]
+											},
+											"sources": [
+												{
+													"fileName": "inputSchema.ts",
+													"line": 88,
+													"character": 2
+												}
+											],
+											"type": {
+												"type": "reflection",
+												"declaration": {
+													"id": 338,
+													"name": "__type",
+													"variant": "declaration",
+													"kind": 65536,
+													"flags": {},
+													"children": [
+														{
+															"id": 343,
+															"name": "author",
+															"variant": "declaration",
+															"kind": 1024,
+															"flags": {
+																"isOptional": true
+															},
+															"comment": {
+																"summary": [
+																	{
+																		"kind": "text",
+																		"text": "Optional author information See: "
+																	},
+																	{
+																		"kind": "inline-tag",
+																		"tag": "@link",
+																		"text": "`Author`",
+																		"target": 23
+																	}
+																]
+															},
+															"sources": [
+																{
+																	"fileName": "inputSchema.ts",
+																	"line": 53,
+																	"character": 2
+																}
+															],
+															"type": {
+																"type": "reflection",
+																"declaration": {
+																	"id": 344,
+																	"name": "__type",
+																	"variant": "declaration",
+																	"kind": 65536,
+																	"flags": {},
+																	"children": [
+																		{
+																			"id": 346,
+																			"name": "name",
+																			"variant": "declaration",
+																			"kind": 1024,
+																			"flags": {},
+																			"comment": {
+																				"summary": [
+																					{
+																						"kind": "text",
+																						"text": "Full name of the author"
+																					}
+																				]
+																			},
+																			"sources": [
+																				{
+																					"fileName": "inputSchema.ts",
+																					"line": 36,
+																					"character": 2
+																				}
+																			],
+																			"type": {
+																				"type": "intrinsic",
+																				"name": "string"
+																			},
+																			"defaultValue": "..."
+																		},
+																		{
+																			"id": 345,
+																			"name": "role",
+																			"variant": "declaration",
+																			"kind": 1024,
+																			"flags": {},
+																			"comment": {
+																				"summary": [
+																					{
+																						"kind": "text",
+																						"text": "The role of the author (Respondent or Applicant) See: "
+																					},
+																					{
+																						"kind": "inline-tag",
+																						"tag": "@link",
+																						"text": "`AuthorRole`",
+																						"target": 14
+																					}
+																				]
+																			},
+																			"sources": [
+																				{
+																					"fileName": "inputSchema.ts",
+																					"line": 34,
+																					"character": 2
+																				}
+																			],
+																			"type": {
+																				"type": "union",
+																				"types": [
+																					{
+																						"type": "literal",
+																						"value": "Respondent"
+																					},
+																					{
+																						"type": "literal",
+																						"value": "Applicant"
+																					},
+																					{
+																						"type": "literal",
+																						"value": "Third-Party"
+																					}
+																				]
+																			},
+																			"defaultValue": "AuthorRole"
+																		}
+																	],
+																	"groups": [
+																		{
+																			"title": "Properties",
+																			"children": [
+																				346,
+																				345
+																			]
+																		}
+																	]
+																}
+															},
+															"defaultValue": "..."
+														},
+														{
+															"id": 341,
+															"name": "case_name",
+															"variant": "declaration",
+															"kind": 1024,
+															"flags": {
+																"isOptional": true
+															},
+															"comment": {
+																"summary": [
+																	{
+																		"kind": "text",
+																		"text": "Optional case/reference number"
+																	}
+																]
+															},
+															"sources": [
+																{
+																	"fileName": "inputSchema.ts",
+																	"line": 49,
+																	"character": 2
+																}
+															],
+															"type": {
+																"type": "intrinsic",
+																"name": "string"
+															},
+															"defaultValue": "..."
+														},
+														{
+															"id": 340,
+															"name": "case_number",
+															"variant": "declaration",
+															"kind": 1024,
+															"flags": {
+																"isOptional": true
+															},
+															"comment": {
+																"summary": [
+																	{
+																		"kind": "text",
+																		"text": "Optional case/reference number"
+																	}
+																]
+															},
+															"sources": [
+																{
+																	"fileName": "inputSchema.ts",
+																	"line": 47,
+																	"character": 2
+																}
+															],
+															"type": {
+																"type": "intrinsic",
+																"name": "string"
+															},
+															"defaultValue": "..."
+														},
+														{
+															"id": 342,
+															"name": "date",
+															"variant": "declaration",
+															"kind": 1024,
+															"flags": {
+																"isOptional": true
+															},
+															"comment": {
+																"summary": [
+																	{
+																		"kind": "text",
+																		"text": "Optional document date"
+																	}
+																]
+															},
+															"sources": [
+																{
+																	"fileName": "inputSchema.ts",
+																	"line": 51,
+																	"character": 2
+																}
+															],
+															"type": {
+																"type": "reference",
+																"target": {
+																	"packageName": "typescript",
+																	"packagePath": "lib/lib.es5.d.ts",
+																	"qualifiedName": "Date"
+																},
+																"name": "Date",
+																"package": "typescript"
+															},
+															"defaultValue": "..."
+														},
+														{
+															"id": 347,
+															"name": "submitted_by",
+															"variant": "declaration",
+															"kind": 1024,
+															"flags": {
+																"isOptional": true
+															},
+															"comment": {
+																"summary": [
+																	{
+																		"kind": "text",
+																		"text": "Optional submission information See: "
+																	},
+																	{
+																		"kind": "inline-tag",
+																		"tag": "@link",
+																		"text": "`Author`",
+																		"target": 23
+																	}
+																]
+															},
+															"sources": [
+																{
+																	"fileName": "inputSchema.ts",
+																	"line": 55,
+																	"character": 2
+																}
+															],
+															"type": {
+																"type": "reflection",
+																"declaration": {
+																	"id": 348,
+																	"name": "__type",
+																	"variant": "declaration",
+																	"kind": 65536,
+																	"flags": {},
+																	"children": [
+																		{
+																			"id": 350,
+																			"name": "name",
+																			"variant": "declaration",
+																			"kind": 1024,
+																			"flags": {},
+																			"comment": {
+																				"summary": [
+																					{
+																						"kind": "text",
+																						"text": "Full name of the author"
+																					}
+																				]
+																			},
+																			"sources": [
+																				{
+																					"fileName": "inputSchema.ts",
+																					"line": 36,
+																					"character": 2
+																				}
+																			],
+																			"type": {
+																				"type": "intrinsic",
+																				"name": "string"
+																			},
+																			"defaultValue": "..."
+																		},
+																		{
+																			"id": 349,
+																			"name": "role",
+																			"variant": "declaration",
+																			"kind": 1024,
+																			"flags": {},
+																			"comment": {
+																				"summary": [
+																					{
+																						"kind": "text",
+																						"text": "The role of the author (Respondent or Applicant) See: "
+																					},
+																					{
+																						"kind": "inline-tag",
+																						"tag": "@link",
+																						"text": "`AuthorRole`",
+																						"target": 14
+																					}
+																				]
+																			},
+																			"sources": [
+																				{
+																					"fileName": "inputSchema.ts",
+																					"line": 34,
+																					"character": 2
+																				}
+																			],
+																			"type": {
+																				"type": "union",
+																				"types": [
+																					{
+																						"type": "literal",
+																						"value": "Respondent"
+																					},
+																					{
+																						"type": "literal",
+																						"value": "Applicant"
+																					},
+																					{
+																						"type": "literal",
+																						"value": "Third-Party"
+																					}
+																				]
+																			},
+																			"defaultValue": "AuthorRole"
+																		}
+																	],
+																	"groups": [
+																		{
+																			"title": "Properties",
+																			"children": [
+																				350,
+																				349
+																			]
+																		}
+																	]
+																}
+															},
+															"defaultValue": "..."
+														},
+														{
+															"id": 339,
+															"name": "title",
+															"variant": "declaration",
+															"kind": 1024,
+															"flags": {
+																"isOptional": true
+															},
+															"comment": {
+																"summary": [
+																	{
+																		"kind": "text",
+																		"text": "Optional document title"
+																	}
+																]
+															},
+															"sources": [
+																{
+																	"fileName": "inputSchema.ts",
+																	"line": 45,
+																	"character": 2
+																}
+															],
+															"type": {
+																"type": "intrinsic",
+																"name": "string"
+															},
+															"defaultValue": "..."
+														}
+													],
+													"groups": [
+														{
+															"title": "Properties",
+															"children": [
+																343,
+																341,
+																340,
+																342,
+																347,
+																339
+															]
+														}
+													]
+												}
+											},
+											"defaultValue": "..."
+										},
+										{
+											"id": 336,
+											"name": "type",
+											"variant": "declaration",
+											"kind": 1024,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "inputSchema.ts",
+													"line": 98,
+													"character": 2
+												}
+											],
+											"type": {
+												"type": "literal",
+												"value": "globals"
+											},
+											"defaultValue": "..."
+										},
+										{
+											"id": 335,
+											"name": "version",
+											"variant": "declaration",
+											"kind": 1024,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "Document version following semantic versioning See: "
+													},
+													{
+														"kind": "inline-tag",
+														"tag": "@link",
+														"text": "`Version`",
+														"target": 48
+													}
+												]
+											},
+											"sources": [
+												{
+													"fileName": "inputSchema.ts",
+													"line": 84,
+													"character": 2
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											},
+											"defaultValue": "Version"
+										}
+									],
+									"groups": [
+										{
+											"title": "Properties",
+											"children": [
+												351,
+												337,
+												336,
+												335
+											]
+										}
+									]
+								}
+							},
+							{
+								"type": "reflection",
+								"declaration": {
+									"id": 354,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"children": [
+										{
+											"id": 358,
+											"name": "content",
+											"variant": "declaration",
+											"kind": 1024,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "Array of content elements (headings, subheadings, paragraphs) See: "
+													},
+													{
+														"kind": "inline-tag",
+														"tag": "@link",
+														"text": "`Content`",
+														"target": 135
+													}
+												]
+											},
+											"sources": [
+												{
+													"fileName": "inputSchema.ts",
+													"line": 149,
+													"character": 2
+												}
+											],
+											"type": {
+												"type": "array",
+												"elementType": {
+													"type": "union",
+													"types": [
+														{
+															"type": "intrinsic",
+															"name": "string"
+														},
+														{
+															"type": "reflection",
+															"declaration": {
+																"id": 359,
+																"name": "__type",
+																"variant": "declaration",
+																"kind": 65536,
+																"flags": {},
+																"children": [
+																	{
+																		"id": 362,
+																		"name": "subTitle",
+																		"variant": "declaration",
+																		"kind": 1024,
+																		"flags": {
+																			"isOptional": true
+																		},
+																		"sources": [
+																			{
+																				"fileName": "inputSchema.ts",
+																				"line": 110,
+																				"character": 2
+																			}
+																		],
+																		"type": {
+																			"type": "intrinsic",
+																			"name": "string"
+																		},
+																		"defaultValue": "..."
+																	},
+																	{
+																		"id": 361,
+																		"name": "text",
+																		"variant": "declaration",
+																		"kind": 1024,
+																		"flags": {},
+																		"comment": {
+																			"summary": [
+																				{
+																					"kind": "text",
+																					"text": "The heading text"
+																				}
+																			]
+																		},
+																		"sources": [
+																			{
+																				"fileName": "inputSchema.ts",
+																				"line": 109,
+																				"character": 2
+																			}
+																		],
+																		"type": {
+																			"type": "intrinsic",
+																			"name": "string"
+																		},
+																		"defaultValue": "..."
+																	},
+																	{
+																		"id": 360,
+																		"name": "type",
+																		"variant": "declaration",
+																		"kind": 1024,
+																		"flags": {},
+																		"comment": {
+																			"summary": [
+																				{
+																					"kind": "text",
+																					"text": "Content type identifier"
+																				}
+																			]
+																		},
+																		"sources": [
+																			{
+																				"fileName": "inputSchema.ts",
+																				"line": 107,
+																				"character": 2
+																			}
+																		],
+																		"type": {
+																			"type": "literal",
+																			"value": "heading"
+																		},
+																		"defaultValue": "..."
+																	}
+																],
+																"groups": [
+																	{
+																		"title": "Properties",
+																		"children": [
+																			362,
+																			361,
+																			360
+																		]
+																	}
+																]
+															}
+														},
+														{
+															"type": "reflection",
+															"declaration": {
+																"id": 363,
+																"name": "__type",
+																"variant": "declaration",
+																"kind": 65536,
+																"flags": {},
+																"children": [
+																	{
+																		"id": 365,
+																		"name": "text",
+																		"variant": "declaration",
+																		"kind": 1024,
+																		"flags": {},
+																		"sources": [
+																			{
+																				"fileName": "inputSchema.ts",
+																				"line": 121,
+																				"character": 4
+																			}
+																		],
+																		"type": {
+																			"type": "intrinsic",
+																			"name": "string"
+																		},
+																		"defaultValue": "..."
+																	},
+																	{
+																		"id": 364,
+																		"name": "type",
+																		"variant": "declaration",
+																		"kind": 1024,
+																		"flags": {},
+																		"sources": [
+																			{
+																				"fileName": "inputSchema.ts",
+																				"line": 120,
+																				"character": 4
+																			}
+																		],
+																		"type": {
+																			"type": "literal",
+																			"value": "paragraph"
+																		},
+																		"defaultValue": "..."
+																	}
+																],
+																"groups": [
+																	{
+																		"title": "Properties",
+																		"children": [
+																			365,
+																			364
+																		]
+																	}
+																]
+															}
+														}
+													]
+												}
+											},
+											"defaultValue": "..."
+										},
+										{
+											"id": 380,
+											"name": "features",
+											"variant": "declaration",
+											"kind": 1024,
+											"flags": {
+												"isOptional": true
+											},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "Document rendering features configuration. See: "
+													},
+													{
+														"kind": "inline-tag",
+														"tag": "@link",
+														"text": "`DocumentFeatures`",
+														"target": 52
+													}
+												]
+											},
+											"sources": [
+												{
+													"fileName": "inputSchema.ts",
+													"line": 90,
+													"character": 2
+												}
+											],
+											"type": {
+												"type": "reflection",
+												"declaration": {
+													"id": 381,
+													"name": "__type",
+													"variant": "declaration",
+													"kind": 65536,
+													"flags": {},
+													"children": [
+														{
+															"id": 382,
+															"name": "pageNumbers",
+															"variant": "declaration",
+															"kind": 1024,
+															"flags": {
+																"isOptional": true
+															},
+															"comment": {
+																"summary": [
+																	{
+																		"kind": "text",
+																		"text": "Whether to display page numbers in the rendered document"
+																	}
+																]
+															},
+															"sources": [
+																{
+																	"fileName": "inputSchema.ts",
+																	"line": 70,
+																	"character": 2
+																}
+															],
+															"type": {
+																"type": "intrinsic",
+																"name": "boolean"
+															},
+															"defaultValue": "..."
+														}
+													],
+													"groups": [
+														{
+															"title": "Properties",
+															"children": [
+																382
+															]
+														}
+													]
+												}
+											},
+											"defaultValue": "..."
+										},
+										{
+											"id": 383,
+											"name": "id",
+											"variant": "declaration",
+											"kind": 1024,
+											"flags": {
+												"isOptional": true
+											},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "Unique identifier (auto-generated UUID if not provided) See: "
+													},
+													{
+														"kind": "inline-tag",
+														"tag": "@link",
+														"text": "`EntryID`",
+														"target": 8
+													}
+												]
+											},
+											"sources": [
+												{
+													"fileName": "inputSchema.ts",
+													"line": 145,
+													"character": 2
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											},
+											"defaultValue": "..."
+										},
+										{
+											"id": 366,
+											"name": "properties",
+											"variant": "declaration",
+											"kind": 1024,
+											"flags": {
+												"isOptional": true
+											},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "Optional document properties See: "
+													},
+													{
+														"kind": "inline-tag",
+														"tag": "@link",
+														"text": "`DocumentProperties`",
+														"target": 46
+													}
+												]
+											},
+											"sources": [
+												{
+													"fileName": "inputSchema.ts",
+													"line": 88,
+													"character": 2
+												}
+											],
+											"type": {
+												"type": "reflection",
+												"declaration": {
+													"id": 367,
+													"name": "__type",
+													"variant": "declaration",
+													"kind": 65536,
+													"flags": {},
+													"children": [
+														{
+															"id": 372,
+															"name": "author",
+															"variant": "declaration",
+															"kind": 1024,
+															"flags": {
+																"isOptional": true
+															},
+															"comment": {
+																"summary": [
+																	{
+																		"kind": "text",
+																		"text": "Optional author information See: "
+																	},
+																	{
+																		"kind": "inline-tag",
+																		"tag": "@link",
+																		"text": "`Author`",
+																		"target": 23
+																	}
+																]
+															},
+															"sources": [
+																{
+																	"fileName": "inputSchema.ts",
+																	"line": 53,
+																	"character": 2
+																}
+															],
+															"type": {
+																"type": "reflection",
+																"declaration": {
+																	"id": 373,
+																	"name": "__type",
+																	"variant": "declaration",
+																	"kind": 65536,
+																	"flags": {},
+																	"children": [
+																		{
+																			"id": 375,
+																			"name": "name",
+																			"variant": "declaration",
+																			"kind": 1024,
+																			"flags": {},
+																			"comment": {
+																				"summary": [
+																					{
+																						"kind": "text",
+																						"text": "Full name of the author"
+																					}
+																				]
+																			},
+																			"sources": [
+																				{
+																					"fileName": "inputSchema.ts",
+																					"line": 36,
+																					"character": 2
+																				}
+																			],
+																			"type": {
+																				"type": "intrinsic",
+																				"name": "string"
+																			},
+																			"defaultValue": "..."
+																		},
+																		{
+																			"id": 374,
+																			"name": "role",
+																			"variant": "declaration",
+																			"kind": 1024,
+																			"flags": {},
+																			"comment": {
+																				"summary": [
+																					{
+																						"kind": "text",
+																						"text": "The role of the author (Respondent or Applicant) See: "
+																					},
+																					{
+																						"kind": "inline-tag",
+																						"tag": "@link",
+																						"text": "`AuthorRole`",
+																						"target": 14
+																					}
+																				]
+																			},
+																			"sources": [
+																				{
+																					"fileName": "inputSchema.ts",
+																					"line": 34,
+																					"character": 2
+																				}
+																			],
+																			"type": {
+																				"type": "union",
+																				"types": [
+																					{
+																						"type": "literal",
+																						"value": "Respondent"
+																					},
+																					{
+																						"type": "literal",
+																						"value": "Applicant"
+																					},
+																					{
+																						"type": "literal",
+																						"value": "Third-Party"
+																					}
+																				]
+																			},
+																			"defaultValue": "AuthorRole"
+																		}
+																	],
+																	"groups": [
+																		{
+																			"title": "Properties",
+																			"children": [
+																				375,
+																				374
+																			]
+																		}
+																	]
+																}
+															},
+															"defaultValue": "..."
+														},
+														{
+															"id": 370,
+															"name": "case_name",
+															"variant": "declaration",
+															"kind": 1024,
+															"flags": {
+																"isOptional": true
+															},
+															"comment": {
+																"summary": [
+																	{
+																		"kind": "text",
+																		"text": "Optional case/reference number"
+																	}
+																]
+															},
+															"sources": [
+																{
+																	"fileName": "inputSchema.ts",
+																	"line": 49,
+																	"character": 2
+																}
+															],
+															"type": {
+																"type": "intrinsic",
+																"name": "string"
+															},
+															"defaultValue": "..."
+														},
+														{
+															"id": 369,
+															"name": "case_number",
+															"variant": "declaration",
+															"kind": 1024,
+															"flags": {
+																"isOptional": true
+															},
+															"comment": {
+																"summary": [
+																	{
+																		"kind": "text",
+																		"text": "Optional case/reference number"
+																	}
+																]
+															},
+															"sources": [
+																{
+																	"fileName": "inputSchema.ts",
+																	"line": 47,
+																	"character": 2
+																}
+															],
+															"type": {
+																"type": "intrinsic",
+																"name": "string"
+															},
+															"defaultValue": "..."
+														},
+														{
+															"id": 371,
+															"name": "date",
+															"variant": "declaration",
+															"kind": 1024,
+															"flags": {
+																"isOptional": true
+															},
+															"comment": {
+																"summary": [
+																	{
+																		"kind": "text",
+																		"text": "Optional document date"
+																	}
+																]
+															},
+															"sources": [
+																{
+																	"fileName": "inputSchema.ts",
+																	"line": 51,
+																	"character": 2
+																}
+															],
+															"type": {
+																"type": "reference",
+																"target": {
+																	"packageName": "typescript",
+																	"packagePath": "lib/lib.es5.d.ts",
+																	"qualifiedName": "Date"
+																},
+																"name": "Date",
+																"package": "typescript"
+															},
+															"defaultValue": "..."
+														},
+														{
+															"id": 376,
+															"name": "submitted_by",
+															"variant": "declaration",
+															"kind": 1024,
+															"flags": {
+																"isOptional": true
+															},
+															"comment": {
+																"summary": [
+																	{
+																		"kind": "text",
+																		"text": "Optional submission information See: "
+																	},
+																	{
+																		"kind": "inline-tag",
+																		"tag": "@link",
+																		"text": "`Author`",
+																		"target": 23
+																	}
+																]
+															},
+															"sources": [
+																{
+																	"fileName": "inputSchema.ts",
+																	"line": 55,
+																	"character": 2
+																}
+															],
+															"type": {
+																"type": "reflection",
+																"declaration": {
+																	"id": 377,
+																	"name": "__type",
+																	"variant": "declaration",
+																	"kind": 65536,
+																	"flags": {},
+																	"children": [
+																		{
+																			"id": 379,
+																			"name": "name",
+																			"variant": "declaration",
+																			"kind": 1024,
+																			"flags": {},
+																			"comment": {
+																				"summary": [
+																					{
+																						"kind": "text",
+																						"text": "Full name of the author"
+																					}
+																				]
+																			},
+																			"sources": [
+																				{
+																					"fileName": "inputSchema.ts",
+																					"line": 36,
+																					"character": 2
+																				}
+																			],
+																			"type": {
+																				"type": "intrinsic",
+																				"name": "string"
+																			},
+																			"defaultValue": "..."
+																		},
+																		{
+																			"id": 378,
+																			"name": "role",
+																			"variant": "declaration",
+																			"kind": 1024,
+																			"flags": {},
+																			"comment": {
+																				"summary": [
+																					{
+																						"kind": "text",
+																						"text": "The role of the author (Respondent or Applicant) See: "
+																					},
+																					{
+																						"kind": "inline-tag",
+																						"tag": "@link",
+																						"text": "`AuthorRole`",
+																						"target": 14
+																					}
+																				]
+																			},
+																			"sources": [
+																				{
+																					"fileName": "inputSchema.ts",
+																					"line": 34,
+																					"character": 2
+																				}
+																			],
+																			"type": {
+																				"type": "union",
+																				"types": [
+																					{
+																						"type": "literal",
+																						"value": "Respondent"
+																					},
+																					{
+																						"type": "literal",
+																						"value": "Applicant"
+																					},
+																					{
+																						"type": "literal",
+																						"value": "Third-Party"
+																					}
+																				]
+																			},
+																			"defaultValue": "AuthorRole"
+																		}
+																	],
+																	"groups": [
+																		{
+																			"title": "Properties",
+																			"children": [
+																				379,
+																				378
+																			]
+																		}
+																	]
+																}
+															},
+															"defaultValue": "..."
+														},
+														{
+															"id": 368,
+															"name": "title",
+															"variant": "declaration",
+															"kind": 1024,
+															"flags": {
+																"isOptional": true
+															},
+															"comment": {
+																"summary": [
+																	{
+																		"kind": "text",
+																		"text": "Optional document title"
+																	}
+																]
+															},
+															"sources": [
+																{
+																	"fileName": "inputSchema.ts",
+																	"line": 45,
+																	"character": 2
+																}
+															],
+															"type": {
+																"type": "intrinsic",
+																"name": "string"
+															},
+															"defaultValue": "..."
+														}
+													],
+													"groups": [
+														{
+															"title": "Properties",
+															"children": [
+																372,
+																370,
+																369,
+																371,
+																376,
+																368
+															]
+														}
+													]
+												}
+											},
+											"defaultValue": "..."
+										},
+										{
+											"id": 357,
+											"name": "title",
+											"variant": "declaration",
+											"kind": 1024,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "Document title (required)"
+													}
+												]
+											},
+											"sources": [
+												{
+													"fileName": "inputSchema.ts",
+													"line": 147,
+													"character": 2
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											},
+											"defaultValue": "..."
+										},
+										{
+											"id": 356,
+											"name": "type",
+											"variant": "declaration",
+											"kind": 1024,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "inputSchema.ts",
+													"line": 143,
+													"character": 2
+												}
+											],
+											"type": {
+												"type": "literal",
+												"value": "document"
+											},
+											"defaultValue": "..."
+										},
+										{
+											"id": 355,
+											"name": "version",
+											"variant": "declaration",
+											"kind": 1024,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "Document version following semantic versioning See: "
+													},
+													{
+														"kind": "inline-tag",
+														"tag": "@link",
+														"text": "`Version`",
+														"target": 48
+													}
+												]
+											},
+											"sources": [
+												{
+													"fileName": "inputSchema.ts",
+													"line": 84,
+													"character": 2
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											},
+											"defaultValue": "Version"
+										}
+									],
+									"groups": [
+										{
+											"title": "Properties",
+											"children": [
+												358,
+												380,
+												383,
+												366,
+												357,
+												356,
+												355
+											]
+										}
+									]
+								}
+							}
+						]
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Type Aliases",
+					"children": [
+						6,
+						8,
+						14,
+						23,
+						46,
+						48,
+						52,
+						85,
+						115,
+						121,
+						126,
+						135,
+						175,
+						227
+					]
+				},
+				{
+					"title": "Variables",
+					"children": [
+						2,
+						7,
+						9,
+						15,
+						24,
+						47,
+						49,
+						53,
+						86,
+						116,
+						122,
+						127,
+						136,
+						176
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "inputSchema.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 230,
+			"name": "watch-doc",
+			"variant": "declaration",
+			"kind": 2,
+			"flags": {},
+			"children": [
+				{
+					"id": 390,
+					"name": "default",
+					"variant": "declaration",
+					"kind": 64,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "watch-doc.ts",
+							"line": 30,
+							"character": 0
+						}
+					],
+					"signatures": [
+						{
+							"id": 391,
+							"name": "default",
+							"variant": "signature",
+							"kind": 4096,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "watch-doc.ts",
+									"line": 30,
+									"character": 0
+								}
+							],
+							"parameters": [
+								{
+									"id": 392,
+									"name": "__namedParameters",
+									"variant": "param",
+									"kind": 32768,
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"target": {
+											"packageName": "shell",
+											"packagePath": "index.d.ts",
+											"qualifiedName": "RouteContext"
+										},
+										"name": "RouteContext",
+										"package": "shell"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"target": {
+									"packageName": "typescript",
+									"packagePath": "lib/lib.es5.d.ts",
+									"qualifiedName": "Promise"
+								},
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "void"
+									}
+								],
+								"name": "Promise",
+								"package": "typescript"
+							}
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"children": [
+						390
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "watch-doc.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		}
+	],
+	"groups": [
+		{
+			"title": "Modules",
+			"children": [
+				231,
+				228,
+				229,
+				1,
+				230
+			]
+		}
+	],
+	"packageName": "legal-doc-compiler",
+	"readme": [
+		{
+			"kind": "text",
+			"text": "# legal-doc-compiler\n\nTo install dependencies:\n\n"
+		},
+		{
+			"kind": "code",
+			"text": "```bash\nbun install\n```"
+		},
+		{
+			"kind": "text",
+			"text": "\n\nTo run:\n\n"
+		},
+		{
+			"kind": "code",
+			"text": "```bash\nbun run index.ts\n```"
+		},
+		{
+			"kind": "text",
+			"text": "\n\nThis project was created using "
+		},
+		{
+			"kind": "code",
+			"text": "`bun init`"
+		},
+		{
+			"kind": "text",
+			"text": " in bun v1.3.11. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime."
+		}
+	],
+	"symbolIdMap": {
+		"1": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": ""
+		},
+		"2": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "EntryType"
+		},
+		"6": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "EntryType"
+		},
+		"7": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "EntryID"
+		},
+		"8": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "EntryID"
+		},
+		"9": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "AuthorRole"
+		},
+		"14": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "AuthorRole"
+		},
+		"15": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "Author"
+		},
+		"23": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "Author"
+		},
+		"24": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "DocumentProperties"
+		},
+		"46": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "DocumentProperties"
+		},
+		"47": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "Version"
+		},
+		"48": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "Version"
+		},
+		"49": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "DocumentFeatures"
+		},
+		"52": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "DocumentFeatures"
+		},
+		"53": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "DocumentOptions"
+		},
+		"85": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "Options"
+		},
+		"86": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "Globals"
+		},
+		"115": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "Globals"
+		},
+		"116": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "ContentHeading"
+		},
+		"121": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "ContentHeading"
+		},
+		"122": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "ContentParagraph"
+		},
+		"126": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "ContentParagraph"
+		},
+		"127": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "Content"
+		},
+		"135": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "Content"
+		},
+		"136": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "Document"
+		},
+		"175": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "Document"
+		},
+		"176": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "Input"
+		},
+		"227": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "Input"
+		},
+		"228": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/compile-doc.ts",
+			"qualifiedName": ""
+		},
+		"229": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/example-gen.ts",
+			"qualifiedName": ""
+		},
+		"230": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/watch-doc.ts",
+			"qualifiedName": ""
+		},
+		"231": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/bin/legal-doc-gen.ts",
+			"qualifiedName": ""
+		},
+		"232": {
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
+		},
+		"233": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "role"
+		},
+		"234": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "name"
+		},
+		"235": {
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
+		},
+		"236": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "title"
+		},
+		"237": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "case_number"
+		},
+		"238": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "case_name"
+		},
+		"239": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "date"
+		},
+		"240": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "author"
+		},
+		"241": {
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
+		},
+		"242": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "role"
+		},
+		"243": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "name"
+		},
+		"244": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "submitted_by"
+		},
+		"245": {
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
+		},
+		"246": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "role"
+		},
+		"247": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "name"
+		},
+		"248": {
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
+		},
+		"249": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "pageNumbers"
+		},
+		"250": {
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
+		},
+		"251": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "version"
+		},
+		"252": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "type"
+		},
+		"253": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "properties"
+		},
+		"254": {
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
+		},
+		"255": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "title"
+		},
+		"256": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "case_number"
+		},
+		"257": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "case_name"
+		},
+		"258": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "date"
+		},
+		"259": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "author"
+		},
+		"260": {
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
+		},
+		"261": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "role"
+		},
+		"262": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "name"
+		},
+		"263": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "submitted_by"
+		},
+		"264": {
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
+		},
+		"265": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "role"
+		},
+		"266": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "name"
+		},
+		"267": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "features"
+		},
+		"268": {
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
+		},
+		"269": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "pageNumbers"
+		},
+		"270": {
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
+		},
+		"271": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "version"
+		},
+		"272": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "type"
+		},
+		"273": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "properties"
+		},
+		"274": {
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
+		},
+		"275": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "title"
+		},
+		"276": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "case_number"
+		},
+		"277": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "case_name"
+		},
+		"278": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "date"
+		},
+		"279": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "author"
+		},
+		"280": {
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
+		},
+		"281": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "role"
+		},
+		"282": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "name"
+		},
+		"283": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "submitted_by"
+		},
+		"284": {
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
+		},
+		"285": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "role"
+		},
+		"286": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "name"
+		},
+		"287": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "features"
+		},
+		"288": {
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
+		},
+		"289": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "pageNumbers"
+		},
+		"290": {
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
+		},
+		"291": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "type"
+		},
+		"292": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "text"
+		},
+		"293": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "subTitle"
+		},
+		"294": {
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
+		},
+		"295": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "type"
+		},
+		"296": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "text"
+		},
+		"297": {
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
+		},
+		"298": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "type"
+		},
+		"299": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "text"
+		},
+		"300": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "subTitle"
+		},
+		"301": {
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
+		},
+		"302": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "type"
+		},
+		"303": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "text"
+		},
+		"304": {
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
+		},
+		"305": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "version"
+		},
+		"306": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "type"
+		},
+		"307": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "title"
+		},
+		"308": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "content"
+		},
+		"309": {
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
+		},
+		"310": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "type"
+		},
+		"311": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "text"
+		},
+		"312": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "subTitle"
+		},
+		"313": {
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
+		},
+		"314": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "type"
+		},
+		"315": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "text"
+		},
+		"316": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "properties"
+		},
+		"317": {
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
+		},
+		"318": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "title"
+		},
+		"319": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "case_number"
+		},
+		"320": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "case_name"
+		},
+		"321": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "date"
+		},
+		"322": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "author"
+		},
+		"323": {
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
+		},
+		"324": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "role"
+		},
+		"325": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "name"
+		},
+		"326": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "submitted_by"
+		},
+		"327": {
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
+		},
+		"328": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "role"
+		},
+		"329": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "name"
+		},
+		"330": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "features"
+		},
+		"331": {
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
+		},
+		"332": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "pageNumbers"
+		},
+		"333": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "id"
+		},
+		"334": {
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
+		},
+		"335": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "version"
+		},
+		"336": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "type"
+		},
+		"337": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "properties"
+		},
+		"338": {
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
+		},
+		"339": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "title"
+		},
+		"340": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "case_number"
+		},
+		"341": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "case_name"
+		},
+		"342": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "date"
+		},
+		"343": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "author"
+		},
+		"344": {
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
+		},
+		"345": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "role"
+		},
+		"346": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "name"
+		},
+		"347": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "submitted_by"
+		},
+		"348": {
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
+		},
+		"349": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "role"
+		},
+		"350": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "name"
+		},
+		"351": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "features"
+		},
+		"352": {
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
+		},
+		"353": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "pageNumbers"
+		},
+		"354": {
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
+		},
+		"355": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "version"
+		},
+		"356": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "type"
+		},
+		"357": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "title"
+		},
+		"358": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "content"
+		},
+		"359": {
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
+		},
+		"360": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "type"
+		},
+		"361": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "text"
+		},
+		"362": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "subTitle"
+		},
+		"363": {
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
+		},
+		"364": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "type"
+		},
+		"365": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "text"
+		},
+		"366": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "properties"
+		},
+		"367": {
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
+		},
+		"368": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "title"
+		},
+		"369": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "case_number"
+		},
+		"370": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "case_name"
+		},
+		"371": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "date"
+		},
+		"372": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "author"
+		},
+		"373": {
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
+		},
+		"374": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "role"
+		},
+		"375": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "name"
+		},
+		"376": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "submitted_by"
+		},
+		"377": {
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
+		},
+		"378": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "role"
+		},
+		"379": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "name"
+		},
+		"380": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "features"
+		},
+		"381": {
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
+		},
+		"382": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "pageNumbers"
+		},
+		"383": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/inputSchema.ts",
+			"qualifiedName": "id"
+		},
+		"384": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/compile-doc.ts",
+			"qualifiedName": "default"
+		},
+		"385": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/compile-doc.ts",
+			"qualifiedName": "default"
+		},
+		"386": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/compile-doc.ts",
+			"qualifiedName": "__0"
+		},
+		"387": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/example-gen.ts",
+			"qualifiedName": "default"
+		},
+		"388": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/example-gen.ts",
+			"qualifiedName": "default"
+		},
+		"389": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/example-gen.ts",
+			"qualifiedName": "__0"
+		},
+		"390": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/watch-doc.ts",
+			"qualifiedName": "default"
+		},
+		"391": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/watch-doc.ts",
+			"qualifiedName": "default"
+		},
+		"392": {
+			"packageName": "legal-doc-compiler",
+			"packagePath": "src/watch-doc.ts",
+			"qualifiedName": "__0"
+		}
+	},
+	"files": {
+		"entries": {
+			"1": "src/inputSchema.ts",
+			"2": "src/compile-doc.ts",
+			"3": "src/example-gen.ts",
+			"4": "src/watch-doc.ts",
+			"5": "src/bin/legal-doc-gen.ts",
+			"6": "README.md",
+			"7": ""
+		},
+		"reflections": {
+			"1": 1,
+			"2": 228,
+			"3": 229,
+			"4": 230,
+			"5": 231,
+			"6": 0,
+			"7": 0
+		}
+	}
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": ["src/index.ts", "src/**/*.ts"],
+  "outputs": [
+        {
+            // requires typedoc-plugin-markdown
+            "name": "markdown",
+            "path": "./docs/markdown"
+        },
+        {
+            "name": "html",
+            "path": "./docs/html",
+            "options": {
+                "navigation": {
+                    "includeCategories": true,
+                    "includeGroups": true,
+                    "excludeReferences": false,
+                    "includeFolders": true
+                }
+            }
+        },
+        {
+            "name": "json",
+            "path": "./docs/docs.json"
+        }
+    ],
+    "plugin": ["typedoc-plugin-markdown", "typedoc-github-theme", "typedoc-plugin-zod", "typedoc-plugin-inline-sources"],
+    "useTsLinkResolution": false
+}
