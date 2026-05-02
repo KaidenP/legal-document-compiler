@@ -6,6 +6,7 @@ import { Document } from '../schemas/document-schema'
 import { renderHTML, getTemplatePath, getStylePath } from '../renderer/html-renderer'
 import { renderPDF } from '../renderer/pdf-renderer'
 import { startWatchServer } from './watch-server'
+import { numberParagraphs } from './preprocess'
 
 function isObject(item: unknown): item is Record<string, unknown> {
   return item !== null && typeof item === 'object' && !Array.isArray(item)
@@ -69,7 +70,10 @@ export default async function ({ params }: RouteContext) {
       }
 
       // Validate document structure
-      const validatedDoc = Document.parse(mergedData)
+      let validatedDoc = Document.parse(mergedData)
+
+      // Preprocess: number paragraphs
+      validatedDoc = numberParagraphs(validatedDoc)
 
       // Render HTML with CSS embedded
       const html = await renderHTML({

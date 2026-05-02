@@ -121,7 +121,8 @@ export const ContentParagraph = z.union([
   z.string(),
   z.object({
     type: z.literal('paragraph').default('paragraph'),
-    text: z.string()
+    text: z.string(),
+    number: z.number().int().positive().optional(),
   })
 ])
 export type ContentParagraph = z.infer<typeof ContentParagraph>

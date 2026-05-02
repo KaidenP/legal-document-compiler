@@ -79,6 +79,11 @@ body {
   widows: 2;
 }
 
+.paragraph-number {
+  font-weight: bold;
+  margin-right: 4px;
+}
+
 .initials-section {
   /* margin-top: 20px; */
   width: 100%;
