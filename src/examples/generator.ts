@@ -60,7 +60,12 @@ function genDocument(num_sect = randInt(2, 10), num_paras = randInt(5, 20), min_
     },
     content: [],
     features: {
-      pageNumbers: Math.random() > 0.5
+      pageNumbers: Math.random() > 0.5,
+      signatoryPage: Math.random() > 0.3 ? {
+        applicant: Math.random() > 0.3,
+        respondent: Math.random() > 0.3,
+        includeCounsel: Math.random() > 0.3,
+      } : undefined
     }
   }
 

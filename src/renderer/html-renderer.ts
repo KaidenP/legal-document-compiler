@@ -21,6 +21,7 @@ async function loadCSS(path: string): Promise<string> {
 function registerHelpers(): void {
   Handlebars.registerHelper('eq', (a, b) => a === b)
   Handlebars.registerHelper('and', (a, b) => a && b)
+  Handlebars.registerHelper('or', (a, b) => a || b)
   Handlebars.registerHelper('formatDate', (date: Date) => {
     if (!date) return ''
     const d = new Date(date)

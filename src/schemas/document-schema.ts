@@ -63,6 +63,20 @@ export const Version = z.stringFormat("version", ver => semver.satisfies(ver, '0
 export type Version = z.infer<typeof Version>
 
 /**
+ * Signatory page configuration for the last page of the document.
+ * Controls which parties have signing blocks and whether counsel lines appear.
+ */
+export const SignatoryPageConfig = z.object({
+  /** Whether to display a signing block for the Applicant */
+  applicant: z.boolean().default(true).optional(),
+  /** Whether to display a signing block for the Respondent */
+  respondent: z.boolean().default(true).optional(),
+  /** Whether to include signing lines for counsel below each party */
+  includeCounsel: z.boolean().default(true),
+})
+export type SignatoryPageConfig = z.infer<typeof SignatoryPageConfig>
+
+/**
  * Configuration options that control document rendering features.
  */
 export const DocumentFeatures = z.object({
@@ -72,6 +86,8 @@ export const DocumentFeatures = z.object({
   docID: z.boolean().default(true).optional(),
   /** Whether to display the initials field in the bottom-right corner */
   initialsField: z.boolean().default(true).optional(),
+  /** Signatory page configuration - omit or set to false to disable */
+  signatoryPage: z.union([z.literal(false), SignatoryPageConfig]).default(false).optional(),
 })
 /**
  * Type definition for document features configuration.

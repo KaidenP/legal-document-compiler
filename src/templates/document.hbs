@@ -109,6 +109,42 @@
         <div class="paragraph">{{this}}</div>
       {{/if}}
     {{/each}}
+
+    {{#if features.signatoryPage}}
+    <div class="page-break-before signatory-page">
+      <div class="signatory-title">Signature Page</div>
+      <div class="signatory-blocks">
+        {{#if features.signatoryPage.applicant}}
+        <div class="signatory-block">
+          <div class="signatory-party-label">Applicant</div>
+          <div class="signatory-line"><span class="signatory-line-label">Signature</span></div>
+          <div class="signatory-line"><span class="signatory-line-label">Name</span></div>
+          <div class="signatory-line"><span class="signatory-line-label">Date</span></div>
+          {{#if features.signatoryPage.includeCounsel}}
+          <div class="signatory-party-label signatory-counsel-label">Counsel for Applicant</div>
+          <div class="signatory-line"><span class="signatory-line-label">Signature</span></div>
+          <div class="signatory-line"><span class="signatory-line-label">Name</span></div>
+          <div class="signatory-line"><span class="signatory-line-label">Date</span></div>
+          {{/if}}
+        </div>
+        {{/if}}
+        {{#if features.signatoryPage.respondent}}
+        <div class="signatory-block">
+          <div class="signatory-party-label">Respondent</div>
+          <div class="signatory-line"><span class="signatory-line-label">Signature</span></div>
+          <div class="signatory-line"><span class="signatory-line-label">Name</span></div>
+          <div class="signatory-line"><span class="signatory-line-label">Date</span></div>
+          {{#if features.signatoryPage.includeCounsel}}
+          <div class="signatory-party-label signatory-counsel-label">Counsel for Respondent</div>
+          <div class="signatory-line"><span class="signatory-line-label">Signature</span></div>
+          <div class="signatory-line"><span class="signatory-line-label">Name</span></div>
+          <div class="signatory-line"><span class="signatory-line-label">Date</span></div>
+          {{/if}}
+        </div>
+        {{/if}}
+      </div>
+    </div>
+    {{/if}}
   </div>
 </body>
 </html>

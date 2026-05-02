@@ -110,6 +110,55 @@ body {
   border-bottom: 1px solid #333;
   /* height: 20px; */
 }
+
+.page-break-before {
+  page-break-before: always;
+}
+
+.signatory-page {
+  padding-top: 1in;
+}
+
+.signatory-title {
+  font-size: 14pt;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1in;
+}
+
+.signatory-blocks {
+  display: flex;
+  gap: 0.5in;
+}
+
+.signatory-block {
+  flex: 1;
+}
+
+.signatory-party-label {
+  font-size: 10pt;
+  font-weight: bold;
+  margin-bottom: 0.4in;
+  margin-top: 0.5in;
+}
+
+.signatory-counsel-label {
+  margin-top: 0.5in;
+}
+
+.signatory-line {
+  border-bottom: 1px solid #333;
+  margin-bottom: 0.3in;
+  position: relative;
+}
+
+.signatory-line-label {
+  font-size: 7pt;
+  color: #828282;
+  position: absolute;
+  bottom: 3px;
+}
+
 @page {
   size: letter;
   margin: .5in .5in .75in .5in;
