@@ -106,7 +106,7 @@ export async function startWatchServer(outdir: string, port: number = 3000): Pro
       }
 
       // Serve files from output directory
-      const filePath = pathjoin(outdir, url.pathname.slice(1))
+      const filePath = pathjoin(outdir, decodeURIComponent(url.pathname.slice(1)))
 
       // Prevent directory traversal
       if (!filePath.startsWith(outdir)) {

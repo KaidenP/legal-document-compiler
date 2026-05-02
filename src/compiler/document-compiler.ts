@@ -1,7 +1,7 @@
-import { basename, join as pathjoin } from 'node:path'
+import { join as pathjoin } from 'node:path'
 import { type RouteContext } from 'shell'
 import { loadAll } from 'js-yaml'
-import { mkdir } from 'node:fs/promises'
+import { mkdir, rm } from 'node:fs/promises'
 import { Document } from '../schemas/document-schema'
 import { renderHTML, getTemplatePath, getStylePath } from '../renderer/html-renderer'
 import { startWatchServer } from './watch-server'
@@ -49,8 +49,9 @@ export default async function ({ params }: RouteContext) {
     }
   }
 
-  // Ensure output directory exists
-  await mkdir(outdir, { recursive: true }).catch(() => { })
+  // Clear and recreate output directory
+  await rm(outdir, { recursive: true, force: true })
+  await mkdir(outdir, { recursive: true })
 
   // Process each document
   for (let i = 0; i < docs.length; i++) {
@@ -75,8 +76,15 @@ export default async function ({ params }: RouteContext) {
       })
 
       // Determine output filename
-      const baseName = basename(inputFile, '.yaml')
-      const outFile = pathjoin(outdir, `${baseName}-${i}.html`)
+      const title = validatedDoc.title || 'document'
+      const submitter = validatedDoc.properties?.submitted_by || validatedDoc.properties?.author
+      const role = submitter?.role || 'Unknown'
+      const name = submitter?.name || 'Unknown'
+      const date = validatedDoc.properties?.date
+        ? validatedDoc.properties.date.toISOString().split('T')[0]
+        : new Date().toISOString().split('T')[0]
+      const fileName = `${title} - ${role} - ${name} - ${date}.html`
+      const outFile = pathjoin(outdir, fileName)
 
       // Write HTML file
       await Bun.write(outFile, html)

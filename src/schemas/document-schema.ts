@@ -48,7 +48,7 @@ export const DocumentProperties = z.object({
   /** Optional case/reference number */
   case_name: z.string().optional(),
   /** Optional document date */
-  date: z.coerce.date().optional(),
+  date: z.coerce.date().default(new Date()).optional(),
   /** Optional author information See: {@link Author:type | `Author`} */
   author: Author.optional(),
   /** Optional submission information See: {@link Author:type | `Author`} */
