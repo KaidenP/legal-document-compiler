@@ -8,6 +8,6 @@
 
 > `const` **EntryType**: `ZodEnum`\<[`EntryType`](../type-aliases/EntryType.md)\>
 
-Defined in: inputSchema.ts:14
+Defined in: [schemas/document-schema.ts:14](https://github.com/KaidenP/legal-document-compiler/blob/100d36bd4761da800ae4d3023ba36b4c1d708a66/src/schemas/document-schema.ts#L14)
 
 Entry type enumeration: either 'globals' for global settings or 'document' for actual documents.

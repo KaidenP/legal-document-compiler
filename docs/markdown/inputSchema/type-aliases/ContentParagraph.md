@@ -6,8 +6,8 @@
 
 # Type Alias: ContentParagraph
 
-> **ContentParagraph** = `string` \| \{ `text`: `string`; `type`: `"paragraph"`; \}
+> **ContentParagraph** = `string` \| \{ `number?`: `number`; `text`: `string`; `type`: `"paragraph"`; \}
 
-Defined in: inputSchema.ts:117
+Defined in: [schemas/document-schema.ts:136](https://github.com/KaidenP/legal-document-compiler/blob/100d36bd4761da800ae4d3023ba36b4c1d708a66/src/schemas/document-schema.ts#L136)
 
 Paragraph content element: either a plain string or an object with explicit paragraph type.

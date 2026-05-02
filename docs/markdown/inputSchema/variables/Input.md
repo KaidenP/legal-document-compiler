@@ -8,4 +8,4 @@
 
 > `const` **Input**: `ZodUnion`\<[`Input`](../type-aliases/Input.md)\>
 
-Defined in: inputSchema.ts:154
+Defined in: [schemas/document-schema.ts:174](https://github.com/KaidenP/legal-document-compiler/blob/100d36bd4761da800ae4d3023ba36b4c1d708a66/src/schemas/document-schema.ts#L174)

@@ -8,7 +8,7 @@
 
 > **ContentHeading** = `object`
 
-Defined in: inputSchema.ts:105
+Defined in: [schemas/document-schema.ts:124](https://github.com/KaidenP/legal-document-compiler/blob/100d36bd4761da800ae4d3023ba36b4c1d708a66/src/schemas/document-schema.ts#L124)
 
 Heading content element for document structure.
 

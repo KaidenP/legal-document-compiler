@@ -1,6 +1,6 @@
 {
   "$schema": "https://typedoc.org/schema.json",
-  "entryPoints": ["src/index.ts", "src/**/*.ts"],
+  "entryPoints": ["src/**/*.ts"],
   "outputs": [
         {
             // requires typedoc-plugin-markdown
@@ -24,6 +24,6 @@
             "path": "./docs/docs.json"
         }
     ],
-    "plugin": ["typedoc-plugin-markdown", "typedoc-github-theme", "typedoc-plugin-zod", "typedoc-plugin-inline-sources"],
-    "useTsLinkResolution": false
+    "plugin": ["typedoc-plugin-markdown", "typedoc-plugin-zod", "typedoc-plugin-inline-sources"],
+    "useTsLinkResolution": true
 }

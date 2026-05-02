@@ -8,7 +8,7 @@
 
 > **DocumentProperties** = `object`
 
-Defined in: inputSchema.ts:43
+Defined in: [schemas/document-schema.ts:43](https://github.com/KaidenP/legal-document-compiler/blob/100d36bd4761da800ae4d3023ba36b4c1d708a66/src/schemas/document-schema.ts#L43)
 
 Document properties containing metadata about the legal document.
 
@@ -18,7 +18,7 @@ Document properties containing metadata about the legal document.
 
 > `optional` **author?**: `object`
 
-Optional author information See: [\`Author\`](Author.md)
+Optional author information See: [:type \| \`Author\`](../variables/Author.md)
 
 #### author.name
 
@@ -30,7 +30,7 @@ Full name of the author
 
 > **role**: `"Respondent"` \| `"Applicant"` \| `"Third-Party"` = `AuthorRole`
 
-The role of the author (Respondent or Applicant) See: [\`AuthorRole\`](AuthorRole.md)
+The role of the author (Respondent or Applicant) See: [:type \| \`AuthorRole\`](../variables/AuthorRole.md)
 
 ### case\_name?
 
@@ -54,7 +54,7 @@ Optional document date
 
 > `optional` **submitted\_by?**: `object`
 
-Optional submission information See: [\`Author\`](Author.md)
+Optional submission information See: [:type \| \`Author\`](../variables/Author.md)
 
 #### submitted\_by.name
 
@@ -66,7 +66,7 @@ Full name of the author
 
 > **role**: `"Respondent"` \| `"Applicant"` \| `"Third-Party"` = `AuthorRole`
 
-The role of the author (Respondent or Applicant) See: [\`AuthorRole\`](AuthorRole.md)
+The role of the author (Respondent or Applicant) See: [:type \| \`AuthorRole\`](../variables/AuthorRole.md)
 
 ### title?
 
