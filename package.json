@@ -3,9 +3,9 @@
   "module": "index.ts",
   "type": "module",
   "private": true,
-  "bin": "src/bin/legal-doc-gen.ts",
+  "bin": "src/cli/legal-doc-gen.ts",
   "scripts": {
-    "app": "bun run src/bin/legal-doc-gen.ts",
+    "app": "bun run src/cli/legal-doc-gen.ts",
     "test": "bun test",
     "typedoc": "bunx --bun typedoc",
     "format": "prettier --write 'src/**/*.ts'",

@@ -125,7 +125,7 @@ export type ContentParagraph = z.infer<typeof ContentParagraph>
 
 /**
  * Union of all content element types: headings, subheadings, and paragraphs.
- * 
+ *
  * See:
  * - {@link ContentHeading}
  * - {@link ContentParagraph}

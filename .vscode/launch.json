@@ -1,37 +1,36 @@
 {
-  // Use IntelliSense to learn about possible attributes.
-  // Hover to view descriptions of existing attributes.
-  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
     {
       "type": "bun",
-      "internalConsoleOptions": "neverOpen",
+      "internalConsoleOptions": "openOnSessionStart",
       "request": "launch",
-      "name": "Debug Gen",
-      "program": "src/bin/legal-doc-gen.ts",
+      "name": "Generate Documents",
+      "program": "src/cli/legal-doc-gen.ts",
+      "args": ["doc"],
       "cwd": "${workspaceFolder}",
       "stopOnEntry": false,
-      "watchMode": false,
-      "args": ["gen"]
+      "watchMode": false
     },
     {
       "type": "bun",
-      "internalConsoleOptions": "neverOpen",
+      "internalConsoleOptions": "openOnSessionStart",
       "request": "launch",
-      "name": "Debug doc",
-      "program": "src/bin/legal-doc-gen.ts",
+      "name": "Generate Documents (watch)",
+      "program": "src/cli/legal-doc-gen.ts",
+      "args": ["doc", "--watch"],
       "cwd": "${workspaceFolder}",
       "stopOnEntry": false,
-      "watchMode": false,
-      "args": ["doc"]
+      "watchMode": true,
+      "runtimeArgs": ["--no-clear-screen"],
     },
     {
       "type": "bun",
-      "internalConsoleOptions": "neverOpen",
+      "internalConsoleOptions": "openOnSessionStart",
       "request": "launch",
-      "name": "Debug File",
-      "program": "${file}",
+      "name": "Generate Examples",
+      "program": "src/cli/legal-doc-gen.ts",
+      "args": ["gen"],
       "cwd": "${workspaceFolder}",
       "stopOnEntry": false,
       "watchMode": false
@@ -40,7 +39,18 @@
       "type": "bun",
       "internalConsoleOptions": "neverOpen",
       "request": "launch",
-      "name": "Run File",
+      "name": "Debug: Watch Mode",
+      "program": "src/cli/legal-doc-gen.ts",
+      "args": ["watch", "-p", "5173"],
+      "cwd": "${workspaceFolder}",
+      "stopOnEntry": false,
+      "watchMode": false
+    },
+    {
+      "type": "bun",
+      "internalConsoleOptions": "neverOpen",
+      "request": "launch",
+      "name": "Run Current File",
       "program": "${file}",
       "cwd": "${workspaceFolder}",
       "noDebug": true,

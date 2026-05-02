@@ -1,5 +1,5 @@
 import { shell as Shell } from 'shell'
-import { join as pathjoin } from 'node:path'
+import { join, normalize } from 'node:path'
 
 const shell = Shell({
   name: 'legal-doc-gen.ts',
@@ -15,7 +15,7 @@ const shell = Shell({
       description: 'Filename',
       shortcut: 'f',
       type: 'string',
-      default: 'out/example.yaml',
+      default: normalize(join(__dirname, '..', 'examples', 'fixtures', 'example.yaml')),
     },
   },
   commands: {
@@ -26,32 +26,23 @@ const shell = Shell({
           description: 'Number of docs to generate',
           shortcut: 'a',
           type: 'integer',
-          default: 10
+          default: 1
         }
       },
-      handler: pathjoin(__dirname, '..', 'example-gen.ts'),
+      handler: join(import.meta.dir, '..', 'examples', 'generator.ts'),
     },
     doc: {
       description: 'Generate the document',
-      handler: pathjoin(__dirname, '..', 'compile-doc.ts'),
-    },
-    watch: {
-      description: 'Watch for template/input changes and auto-compile with dev server',
+      handler: join(import.meta.dir, '..', 'compiler', 'document-compiler.ts'),
       options: {
-        port: {
-          description: 'Port for dev server',
-          shortcut: 'p',
-          type: 'integer',
-          default: 5173
-        },
-        'no-server': {
-          description: 'Disable dev server (watch-only mode)',
+        watch: {
+          description: 'Start HTTP server for watching',
+          shortcut: 'w',
           type: 'boolean',
           default: false
         }
       },
-      handler: pathjoin(__dirname, '..', 'watch-doc.ts'),
-    }
+    },
   },
 })
 

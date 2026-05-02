@@ -3,7 +3,7 @@ import { type RouteContext } from 'shell'
 import { LoremIpsum } from 'lorem-ipsum'
 import { dump } from 'js-yaml'
 
-import { Document, Input } from './inputSchema'
+import { Document, Input } from '../schemas/document-schema'
 
 const MIN_DATE = new Date(`1900-01-01T00:00:00Z`)
 const MAX_DATE = new Date(`2100-01-01T00:00:00Z`)

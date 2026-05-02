@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Legal Document Viewer</title>
+  <link rel="stylesheet" href="/viewer.css">
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Documents</h2>
+    <ul id="docList">
+      {{#if documents}}
+        {{#each documents}}
+          <li class="doc-item">
+            <div class="doc-name">{{this.name}}</div>
+            <div class="doc-formats">
+              {{#if this.html}}
+                <button class="format-btn html-btn" onclick="loadDocument('{{this.html}}', 'html'); return false;">HTML</button>
+              {{/if}}
+              {{#if this.pdf}}
+                <button class="format-btn pdf-btn" onclick="loadDocument('{{this.pdf}}', 'pdf'); return false;">PDF</button>
+              {{/if}}
+            </div>
+          </li>
+        {{/each}}
+      {{else}}
+        <li class="no-documents">No documents generated</li>
+      {{/if}}
+    </ul>
+  </div>
+
+  <div class="viewer">
+    <div class="toolbar">
+      <h1 id="docTitle">Select a document</h1>
+      <div class="status" id="docStatus"></div>
+    </div>
+    <div id="content">
+      <iframe id="viewer"></iframe>
+    </div>
+  </div>
+
+  <script>
+    let currentDoc = null;
+    const STORAGE_KEY = 'selected-document';
+
+    function loadDocument(path, format) {
+      const btn = event.target;
+      const docItem = btn.closest('.doc-item');
+      const docName = docItem.querySelector('.doc-name').textContent;
+
+      // Update active button state
+      docItem.querySelectorAll('.format-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      // Update title and viewer
+      document.getElementById('docTitle').textContent = docName;
+      document.getElementById('viewer').src = path;
+      document.getElementById('docStatus').textContent = `Viewing: ${format.toUpperCase()}`;
+
+      currentDoc = path;
+
+      // Save to localStorage
+      localStorage.setItem(STORAGE_KEY, path);
+    }
+
+    // Detect server restart and refresh
+    async function detectServerRestart() {
+      let serverStartTime = null;
+
+      // Get initial server start time
+      try {
+        const response = await fetch('/health', { cache: 'no-store' });
+        const data = await response.json();
+        serverStartTime = data.startTime;
+      } catch {
+        console.error('Failed to fetch initial health check');
+      }
+
+      // Poll for server restart
+      setInterval(async () => {
+        try {
+          const response = await fetch('/health', { cache: 'no-store' });
+          const data = await response.json();
+
+          if (serverStartTime !== null && data.startTime > serverStartTime) {
+            // Server has restarted, refresh the page
+            window.location.reload();
+          }
+        } catch {
+          // Server is unreachable, will refresh when it comes back
+        }
+      }, 500);
+    }
+
+    // Restore previously selected document or load first
+    function restoreDocument() {
+      const savedPath = localStorage.getItem(STORAGE_KEY);
+
+      if (savedPath) {
+        // Find and click the button for the saved document
+        const allButtons = document.querySelectorAll('.format-btn');
+        for (const btn of allButtons) {
+          if (btn.getAttribute('onclick').includes(savedPath)) {
+            btn.click();
+            return;
+          }
+        }
+      }
+
+      // Fallback: load first document's default format
+      const firstDoc = document.querySelector('.format-btn');
+      if (firstDoc) {
+        firstDoc.click();
+      }
+    }
+
+    // Initialize
+    detectServerRestart();
+    restoreDocument();
+
+  </script>
+</body>
+</html>

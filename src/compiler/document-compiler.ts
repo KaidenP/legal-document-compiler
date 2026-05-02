@@ -1,9 +1,10 @@
-import { join as pathjoin, basename } from 'node:path'
+import { basename, join as pathjoin } from 'node:path'
 import { type RouteContext } from 'shell'
 import { loadAll } from 'js-yaml'
 import { mkdir } from 'node:fs/promises'
-import Handlebars from 'handlebars'
-import { Document } from './inputSchema'
+import { Document } from '../schemas/document-schema'
+import { renderHTML, getTemplatePath, getStylePath } from '../renderer/html-renderer'
+import { startWatchServer } from './watch-server'
 
 function isObject(item: unknown): item is Record<string, unknown> {
   return item !== null && typeof item === 'object' && !Array.isArray(item)
@@ -27,6 +28,10 @@ function deepMerge(target: unknown, source: unknown): unknown {
 export default async function ({ params }: RouteContext) {
   const inputFile = params.file as string
   const outdir = (params.outdir as string) || 'out'
+  const watch = params.watch as boolean | undefined
+
+  // Mark the file for hot reloading
+  import(inputFile)
 
   // Read and parse YAML file
   const yamlContent = await Bun.file(inputFile).text()
@@ -47,22 +52,6 @@ export default async function ({ params }: RouteContext) {
   // Ensure output directory exists
   await mkdir(outdir, { recursive: true }).catch(() => { })
 
-  // Load CSS file for embedding in template
-  const cssContent = await Bun.file(pathjoin(__dirname, 'templates', 'style', 'document.css')).text()
-
-  // Load and compile template
-  const templateContent = await Bun.file(pathjoin(__dirname, 'templates', 'document.hbs')).text()
-
-  // Register custom helpers
-  Handlebars.registerHelper('eq', (a, b) => a === b)
-  Handlebars.registerHelper('formatDate', (date: Date) => {
-    if (!date) return ''
-    const d = new Date(date)
-    return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
-  })
-
-  const template = Handlebars.compile(templateContent)
-
   // Process each document
   for (let i = 0; i < docs.length; i++) {
     const docData = docs[i]
@@ -79,11 +68,11 @@ export default async function ({ params }: RouteContext) {
       const validatedDoc = Document.parse(mergedData)
 
       // Render HTML with CSS embedded
-      const templateData = {
-        ...validatedDoc,
-        css: cssContent,
-      }
-      const html = template(templateData)
+      const html = await renderHTML({
+        templatePath: getTemplatePath(),
+        cssPath: getStylePath(),
+        data: validatedDoc,
+      })
 
       // Determine output filename
       const baseName = basename(inputFile, '.yaml')
@@ -95,5 +84,9 @@ export default async function ({ params }: RouteContext) {
     } catch (error) {
       console.error(`Failed to process document ${i}:`, error)
     }
+  }
+
+  if (watch) {
+    await startWatchServer(outdir)
   }
 }
