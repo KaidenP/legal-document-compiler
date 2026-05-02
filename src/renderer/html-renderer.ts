@@ -1,4 +1,5 @@
 import { join as pathjoin } from 'node:path'
+import { createHash } from 'node:crypto'
 import Handlebars from 'handlebars'
 
 export interface RenderOptions {
@@ -19,10 +20,16 @@ async function loadCSS(path: string): Promise<string> {
 
 function registerHelpers(): void {
   Handlebars.registerHelper('eq', (a, b) => a === b)
+  Handlebars.registerHelper('and', (a, b) => a && b)
   Handlebars.registerHelper('formatDate', (date: Date) => {
     if (!date) return ''
     const d = new Date(date)
     return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+  })
+  Handlebars.registerHelper('hashId', (id: string) => {
+    if (!id) return ''
+    const hash = createHash('sha256').update(id).digest('hex').slice(0, 32)
+    return hash.replace(/(.{8})/g, '$1-').replace(/-$/, '')
   })
 }
 

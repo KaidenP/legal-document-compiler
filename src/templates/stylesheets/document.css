@@ -16,6 +16,18 @@ body {
   position: running(top-right)
 }
 
+#bottom-left {
+  position: running(bottom-left);
+  font-size: 8pt;
+  color: #828282;
+}
+
+.document-id {
+  font-family: 'Courier New', 'Courier', monospace;
+  font-size: 7pt;
+  letter-spacing: 0.5px;
+}
+
 #bottom-right {
   position: running(bottom-right)
 }
@@ -104,6 +116,10 @@ body {
 
   @top-right {
     content: element(top-right);
+  }
+
+  @bottom-left {
+    content: element(bottom-left);
   }
 
   @bottom-right {

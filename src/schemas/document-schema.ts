@@ -68,7 +68,10 @@ export type Version = z.infer<typeof Version>
 export const DocumentFeatures = z.object({
   /** Whether to display page numbers in the rendered document */
   pageNumbers: z.boolean().default(true).optional(),
-
+  /** Whether to display the document ID in the bottom-left corner */
+  docID: z.boolean().default(true).optional(),
+  /** Whether to display the initials field in the bottom-right corner */
+  initialsField: z.boolean().default(true).optional(),
 })
 /**
  * Type definition for document features configuration.

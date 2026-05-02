@@ -12,6 +12,12 @@
         content: "Page " counter(page) " of " counter(pages);
       }
     }
+    {{else}}
+    @page {
+      @bottom-center {
+        content: "";
+      }
+    }
     {{/if}}
   </style>
   <style media="screen">
@@ -49,10 +55,17 @@
       <div class="document-meta">Date: {{formatDate properties.date}}</div>
       {{/if}}
     </div>
+    <div id="bottom-left">
+      <span></span>
+      {{#if (and features.docID properties.case_number)}}
+      <div>Document ID:</div>
+      <div class="document-id">{{hashId id}}</div>
+      {{/if}}
+    </div>
     <div id="bottom-right">
+      {{#if features.initialsField}}
       <div class="initials-field">
         <div class="initials-section">
-          <div
           <div class="initials-row">
             <div class="initials-column">
               <div class="initials-line">Applicant</div>
@@ -71,6 +84,7 @@
           </div>
         </div>
       </div>
+      {{/if}}
     </div>
   </div>
 
