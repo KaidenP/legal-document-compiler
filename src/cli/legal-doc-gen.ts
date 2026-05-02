@@ -27,7 +27,7 @@ const shell = Shell({
           shortcut: 'a',
           type: 'integer',
           default: 1
-        }
+        },
       },
       handler: join(import.meta.dir, '..', 'examples', 'generator.ts'),
     },
@@ -40,7 +40,17 @@ const shell = Shell({
           shortcut: 'w',
           type: 'boolean',
           default: false
-        }
+        },
+        pdf: {
+          description: 'Build PDFs',
+          type: 'boolean',
+          default: true
+        },
+        html: {
+          description: 'Build HTMLs',
+          type: 'boolean',
+          default: true
+        },
       },
     },
   },

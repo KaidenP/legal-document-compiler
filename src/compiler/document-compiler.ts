@@ -4,6 +4,7 @@ import { loadAll } from 'js-yaml'
 import { mkdir, rm } from 'node:fs/promises'
 import { Document } from '../schemas/document-schema'
 import { renderHTML, getTemplatePath, getStylePath } from '../renderer/html-renderer'
+import { renderPDF } from '../renderer/pdf-renderer'
 import { startWatchServer } from './watch-server'
 
 function isObject(item: unknown): item is Record<string, unknown> {
@@ -29,6 +30,8 @@ export default async function ({ params }: RouteContext) {
   const inputFile = params.file as string
   const outdir = (params.outdir as string) || 'out'
   const watch = params.watch as boolean | undefined
+  const buildPDF = params.pdf !== false
+  const buildHTML = params.html !== false
 
   // Mark the file for hot reloading
   import(inputFile)
@@ -83,12 +86,22 @@ export default async function ({ params }: RouteContext) {
       const date = validatedDoc.properties?.date
         ? validatedDoc.properties.date.toISOString().split('T')[0]
         : new Date().toISOString().split('T')[0]
-      const fileName = `${title} - ${role} - ${name} - ${date}.html`
-      const outFile = pathjoin(outdir, fileName)
+      const baseFileName = `${title} - ${role} - ${name} - ${date}`
 
       // Write HTML file
-      await Bun.write(outFile, html)
-      console.log(`Generated: ${outFile}`)
+      if (buildHTML) {
+        const htmlFile = pathjoin(outdir, `${baseFileName}.html`)
+        await Bun.write(htmlFile, html)
+        console.log(`Generated: ${htmlFile}`)
+      }
+
+      // Generate and write PDF file
+      if (buildPDF) {
+        const pdf = await renderPDF(html)
+        const pdfFile = pathjoin(outdir, `${baseFileName}.pdf`)
+        await Bun.write(pdfFile, pdf)
+        console.log(`Generated: ${pdfFile}`)
+      }
     } catch (error) {
       console.error(`Failed to process document ${i}:`, error)
     }

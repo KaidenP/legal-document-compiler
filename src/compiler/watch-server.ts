@@ -105,6 +105,25 @@ export async function startWatchServer(outdir: string, port: number = 3000): Pro
         return new Response('Not Found', { status: 404 })
       }
 
+      // Serve transpiled viewer JS
+      if (url.pathname === '/viewer.js') {
+        const tsPath = pathjoin(import.meta.dir, '..', 'templates', 'viewer.ts')
+        try {
+          const file = Bun.file(tsPath)
+          if (await file.exists()) {
+            const content = await file.text()
+            const transpiler = new Bun.Transpiler({ loader: 'ts' })
+            const transpiledCode = transpiler.transformSync(content)
+            return new Response(transpiledCode, {
+              headers: { 'Content-Type': 'application/javascript' },
+            })
+          }
+        } catch {
+          // File not found
+        }
+        return new Response('Not Found', { status: 404 })
+      }
+
       // Serve files from output directory
       const filePath = pathjoin(outdir, decodeURIComponent(url.pathname.slice(1)))
 
