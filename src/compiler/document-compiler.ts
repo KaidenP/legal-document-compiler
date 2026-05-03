@@ -1,7 +1,8 @@
 import { join as pathjoin, resolve, dirname } from 'node:path'
 import { type RouteContext } from 'shell'
 import { load } from 'js-yaml'
-import { mkdir, rm } from 'node:fs/promises'
+import { mkdir, rm, readdir } from 'node:fs/promises'
+import { createHash } from 'node:crypto'
 import { Document, Globals } from '../schemas/document-schema'
 import { renderHTML, getTemplatePath, getStylePath } from '../renderer/html-renderer'
 import { renderPDF } from '../renderer/pdf-renderer'
@@ -25,6 +26,26 @@ function deepMerge(target: unknown, source: unknown): unknown {
     }
   }
   return result
+}
+
+function hashContent(content: string): string {
+  return createHash('sha256').update(content).digest('hex').slice(0, 16)
+}
+
+async function loadCache(outdir: string): Promise<Map<string, { file: string; hash: string }>> {
+  const cache = new Map<string, { file: string; hash: string }>()
+  let files: string[]
+  try {
+    files = await readdir(outdir)
+  } catch {
+    return cache
+  }
+  for (const file of files.filter(f => f.endsWith('.html'))) {
+    const text = await Bun.file(pathjoin(outdir, file)).text()
+    const m = text.match(/<!-- source: (.+?) \| hash: ([a-f0-9]+) -->/)
+    if (m && m[1] && m[2]) cache.set(m[1], { file, hash: m[2] })
+  }
+  return cache
 }
 
 export default async function ({ params }: RouteContext) {
@@ -62,13 +83,30 @@ export default async function ({ params }: RouteContext) {
     })
   )
 
-  // Clear and recreate output directory
-  await rm(outdir, { recursive: true, force: true })
   await mkdir(outdir, { recursive: true })
+  const cache = await loadCache(outdir)
+  const processedSources = new Set<string>()
 
   // Process each document
   for (let i = 0; i < docs.length; i++) {
     const docData = docs[i]
+    const absPath = resolve(baseDir, docPaths[i]!)
+    const docContent = await Bun.file(absPath).text()
+    const hash = hashContent(docContent)
+    processedSources.add(absPath)
+
+    const cached = cache.get(absPath)
+    if (cached?.hash === hash) {
+      console.log(`Skipped (unchanged): ${absPath}`)
+      continue
+    }
+
+    // Delete old generated files if source changed (filename may have changed)
+    if (cached) {
+      const base = cached.file.replace(/\.html$/, '')
+      await rm(pathjoin(outdir, `${base}.html`), { force: true })
+      await rm(pathjoin(outdir, `${base}.pdf`), { force: true })
+    }
 
     try {
       // Merge globals defaults into document
@@ -104,7 +142,8 @@ export default async function ({ params }: RouteContext) {
       // Write HTML file
       if (buildHTML) {
         const htmlFile = pathjoin(outdir, `${baseFileName}.html`)
-        await Bun.write(htmlFile, html)
+        const taggedHTML = `<!-- source: ${absPath} | hash: ${hash} -->\n${html}`
+        await Bun.write(htmlFile, taggedHTML)
         console.log(`Generated: ${htmlFile}`)
       }
 
@@ -117,6 +156,16 @@ export default async function ({ params }: RouteContext) {
       }
     } catch (error) {
       console.error(`Failed to process document ${i}:`, error)
+    }
+  }
+
+  // Delete stale files for removed sources
+  for (const [sourcePath, { file }] of cache.entries()) {
+    if (!processedSources.has(sourcePath)) {
+      const base = file.replace(/\.html$/, '')
+      await rm(pathjoin(outdir, `${base}.html`), { force: true })
+      await rm(pathjoin(outdir, `${base}.pdf`), { force: true })
+      console.log(`Removed stale: ${file}`)
     }
   }
 
