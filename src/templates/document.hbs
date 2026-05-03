@@ -107,7 +107,7 @@
           <div class="subparagraph-block">
             {{#each content}}
             <div class="subparagraph">
-              {{#if letter}}<span class="subparagraph-letter">{{letter}}.</span>{{/if}}
+              <span class="subparagraph-letter">{{letter}}.</span>
               {{{renderTemplate text}}}
             </div>
             {{/each}}
@@ -123,6 +123,9 @@
     {{#if features.signatoryPage}}
     <div class="page-break-before signatory-page">
       <div class="signatory-title">Signature Page</div>
+      <div class="signatory-acknowledgment">
+        <p>The parties hereby acknowledge that they have read, understood, and fully agree with the terms and conditions set forth in this document. By executing below, each party confirms their acceptance of all provisions contained herein.</p>
+      </div>
       <div class="signatory-blocks">
         {{#if features.signatoryPage.applicant}}
         <div class="signatory-block">

@@ -189,14 +189,14 @@ export default async function ({ params }: RouteContext) {
   await Promise.all(queue)
 
   // Delete stale files for removed sources
-  for (const [sourcePath, { file }] of cache.entries()) {
-    if (!processedSources.has(sourcePath)) {
-      const base = file.replace(/\.html$/, '')
-      await rm(pathjoin(outdir, `${base}.html`), { force: true })
-      await rm(pathjoin(outdir, `${base}.pdf`), { force: true })
-      console.log(`Removed stale: ${file}`)
-    }
-  }
+  // for (const [sourcePath, { file }] of cache.entries()) {
+  //   if (!processedSources.has(sourcePath)) {
+  //     const base = file.replace(/\.html$/, '')
+  //     await rm(pathjoin(outdir, `${base}.html`), { force: true })
+  //     await rm(pathjoin(outdir, `${base}.pdf`), { force: true })
+  //     console.log(`Removed stale: ${file}`)
+  //   }
+  // }
 
   if (watch) {
     await startWatchServer(outdir)

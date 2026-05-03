@@ -1,10 +1,13 @@
 import { Document, ContentHeading, ContentParagraph, Content, ContentSubParagraph } from '../schemas/document-schema'
 
-function numberSubparagraphs(subparagraphs: ContentSubParagraph[]): ContentSubParagraph[] {
-  return subparagraphs.map((sub, index) => ({
-    ...sub,
-    letter: String.fromCharCode(97 + index), // a, b, c, ...
-  }))
+function numberSubparagraphs(subparagraphs: ContentSubParagraph[]): Array<{ text: string; letter: string }> {
+  return subparagraphs.map((sub, index) => {
+    const text = typeof sub === 'string' ? sub : sub.text
+    return {
+      text,
+      letter: String.fromCharCode(97 + index), // a, b, c, ...
+    }
+  })
 }
 
 export function numberParagraphs(doc: Document): Document {

@@ -52,7 +52,7 @@ function genDocument(num_sect = randInt(2, 20), num_paras = randInt(5, 25), min_
     'Notice of Motion',
   ]
 
-  const content: (string | { type: 'heading'; text: string } | { type: 'paragraph'; text: string; content?: { text: string }[] })[] = []
+  const content: (string | { type: 'heading'; text: string } | { type: 'paragraph'; text: string; content?: string[] })[] = []
 
   for (let s = 0; s < num_sect; s++) {
     content.push({
@@ -67,9 +67,9 @@ function genDocument(num_sect = randInt(2, 20), num_paras = randInt(5, 25), min_
       // 35% chance to add subparagraphs
       if (Math.random() < 0.35) {
         const numSubparagraphs = randInt(2, 4)
-        const subparagraphs = Array.from({ length: numSubparagraphs }, () => ({
-          text: lorem.generateSentences(randInt(2, 4)),
-        }))
+        const subparagraphs = Array.from({ length: numSubparagraphs }, () =>
+          lorem.generateSentences(randInt(2, 4))
+        )
 
         content.push({
           type: 'paragraph',

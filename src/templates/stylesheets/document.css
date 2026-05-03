@@ -94,6 +94,7 @@ body {
   text-align: justify;
   orphans: 2;
   widows: 2;
+	text-align-last: left;
 }
 
 .subparagraph-letter {
@@ -143,6 +144,17 @@ body {
   margin-bottom: 1in;
 }
 
+.signatory-acknowledgment {
+  margin-bottom: 0.5in;
+  text-align: justify;
+}
+
+.signatory-acknowledgment p {
+  font-size: 11pt;
+  margin: 0;
+  line-height: 1.5;
+}
+
 .signatory-blocks {
   display: flex;
   gap: 0.5in;
@@ -165,7 +177,7 @@ body {
 
 .signatory-line {
   border-bottom: 1px solid #333;
-  margin-bottom: 0.3in;
+  margin-top: 0.5in;
   position: relative;
 }
 

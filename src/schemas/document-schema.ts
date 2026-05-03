@@ -132,25 +132,28 @@ export const ContentHeading = z.object({
 export type ContentHeading = z.infer<typeof ContentHeading>
 
 /**
- * Sub-paragraph content element with lettered numbering.
+ * Sub-paragraph content element: either a plain string or an object.
+ * Letter numbering is added during preprocessing.
  */
-export const ContentSubParagraph = z.object({
-  type: z.literal('subparagraph').default('subparagraph').optional(),
-  text: z.string(),
-  letter: z.string().optional(),
-})
+export const ContentSubParagraph = z.union([
+  z.string(),
+  z.object({
+    type: z.literal('subparagraph').default('subparagraph').optional(),
+    text: z.string(),
+  })
+])
 export type ContentSubParagraph = z.infer<typeof ContentSubParagraph>
 
 /**
  * Paragraph content element: either a plain string or an object with explicit paragraph type.
  * May contain nested subparagraphs with lettered numbering.
+ * Paragraph numbering is added during preprocessing.
  */
 export const ContentParagraph = z.union([
   z.string(),
   z.object({
     type: z.literal('paragraph').default('paragraph'),
     text: z.string(),
-    number: z.number().int().positive().optional(),
     content: z.array(ContentSubParagraph).optional(),
   })
 ])
