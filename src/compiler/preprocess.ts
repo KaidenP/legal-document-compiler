@@ -1,4 +1,11 @@
-import { Document, ContentHeading, ContentParagraph, Content } from '../schemas/document-schema'
+import { Document, ContentHeading, ContentParagraph, Content, ContentSubParagraph } from '../schemas/document-schema'
+
+function numberSubparagraphs(subparagraphs: ContentSubParagraph[]): ContentSubParagraph[] {
+  return subparagraphs.map((sub, index) => ({
+    ...sub,
+    letter: String.fromCharCode(97 + index), // a, b, c, ...
+  }))
+}
 
 export function numberParagraphs(doc: Document): Document {
   let paragraphCount = 0
@@ -19,10 +26,19 @@ export function numberParagraphs(doc: Document): Document {
 
     if (item.type === 'paragraph') {
       paragraphCount++
-      return {
+      const numbered = {
         ...item,
         number: paragraphCount,
       }
+
+      if (item.content && item.content.length > 0) {
+        return {
+          ...numbered,
+          content: numberSubparagraphs(item.content),
+        }
+      }
+
+      return numbered
     }
 
     return item

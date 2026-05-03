@@ -57,7 +57,7 @@
     </div>
     <div id="bottom-left">
       <span></span>
-      {{#if (and features.docID properties.case_number)}}
+      {{#if features.docID}}
       <div>Document ID:</div>
       <div class="document-id">{{hashId id}}</div>
       {{/if}}
@@ -93,16 +93,26 @@
       {{#if type}}
         {{#if (eq type "heading")}}
         <div class="heading">
-          <div class="heading-title">{{text}}</div>
+          <div class="heading-title">{{{renderTemplate text}}}</div>
           {{#if subTitle}}
-          <div class="heading-subtitle">{{subTitle}}</div>
+          <div class="heading-subtitle">{{{renderTemplate subTitle}}}</div>
           {{/if}}
         </div>
         {{/if}}
         {{#if (eq type "paragraph")}}
         <div class="paragraph">
           {{#if number}}<span class="paragraph-number">{{number}}.</span>{{/if}}
-          {{text}}
+          {{{renderTemplate text}}}
+          {{#if content}}
+          <div class="subparagraph-block">
+            {{#each content}}
+            <div class="subparagraph">
+              {{#if letter}}<span class="subparagraph-letter">{{letter}}.</span>{{/if}}
+              {{{renderTemplate text}}}
+            </div>
+            {{/each}}
+          </div>
+          {{/if}}
         </div>
         {{/if}}
       {{else}}

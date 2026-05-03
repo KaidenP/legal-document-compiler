@@ -32,6 +32,12 @@ function registerHelpers(): void {
     const hash = createHash('sha256').update(id).digest('hex').slice(0, 32)
     return hash.replace(/(.{8})/g, '$1-').replace(/-$/, '')
   })
+  Handlebars.registerHelper('renderTemplate', function(this: any, template: string, options: any) {
+    if (!template) return ''
+    const compiled = Handlebars.compile(template)
+    const context = options.data?.root || this
+    return new Handlebars.SafeString(compiled(context))
+  })
 }
 
 export async function renderHTML(options: RenderOptions): Promise<string> {

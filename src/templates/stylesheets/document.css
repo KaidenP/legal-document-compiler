@@ -84,6 +84,23 @@ body {
   margin-right: 4px;
 }
 
+.subparagraph-block {
+  margin-left: 20px;
+  margin-top: 4px;
+}
+
+.subparagraph {
+  margin: 0;
+  text-align: justify;
+  orphans: 2;
+  widows: 2;
+}
+
+.subparagraph-letter {
+  font-weight: bold;
+  margin-right: 4px;
+}
+
 .initials-section {
   /* margin-top: 20px; */
   width: 100%;
