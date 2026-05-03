@@ -1,5 +1,5 @@
 import { readdir } from 'node:fs/promises'
-import { join as pathjoin } from 'node:path'
+import { join as pathjoin, resolve } from 'node:path'
 import Handlebars from 'handlebars'
 
 const MIME_TYPES: Record<string, string> = {
@@ -127,8 +127,10 @@ export async function startWatchServer(outdir: string, port: number = 3000): Pro
       // Serve files from output directory
       const filePath = pathjoin(outdir, decodeURIComponent(url.pathname.slice(1)))
 
-      // Prevent directory traversal
-      if (!filePath.startsWith(outdir)) {
+      // Prevent directory traversal - normalize paths to absolute form for comparison
+      const normalizedOutdir = resolve(outdir)
+      const normalizedFilePath = resolve(filePath)
+      if (!normalizedFilePath.startsWith(normalizedOutdir + '/') && normalizedFilePath !== normalizedOutdir) {
         return new Response('Forbidden', { status: 403 })
       }
 
