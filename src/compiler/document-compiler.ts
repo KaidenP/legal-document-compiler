@@ -172,21 +172,22 @@ export default async function ({ params }: RouteContext) {
 
   //
   let promises: Promise<void>[] = []
+  let active = 0
 
   // Process the queue
   for (let q = queue.pop(); q; q = queue.pop()) {
-    let p = q().then(() => {
-      promises = promises.filter(x => x !== p)
-    })
+    promises.push(q().then(() => {
+      active--
+    }))
 
-    promises.push(p)
+    active++
 
-    if (promises.length >= concurrencyLimit) {
+    if (active >= concurrencyLimit) {
       await Promise.race(promises)
     }
   }
 
-  await Promise.all(queue)
+  await Promise.all(promises)
 
   // Delete stale files for removed sources
   // for (const [sourcePath, { file }] of cache.entries()) {
