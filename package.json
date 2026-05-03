@@ -4,6 +4,7 @@
   "type": "module",
   "private": true,
   "bin": "src/cli/legal-doc-gen.ts",
+  "version": "0.0.1",
   "scripts": {
     "app": "bun run src/cli/legal-doc-gen.ts",
     "test": "bun test",

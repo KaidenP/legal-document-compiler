@@ -1,3 +1,5 @@
+#!/usr/bin/env bun
+
 import { shell as Shell } from 'shell'
 import { join, normalize } from 'node:path'
 
