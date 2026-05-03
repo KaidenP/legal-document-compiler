@@ -27,7 +27,7 @@ function randomCaseNumber() {
   return `FC-${randomDigits(2)}-${randomDigits(8)}-${randomDigits(4)}`
 }
 
-function genDocument(num_sect = randInt(2, 10), num_paras = randInt(5, 20), min_words = randInt(7, 15), max_words = min_words + randInt(1, 5)) {
+function genDocument(num_sect = randInt(2, 20), num_paras = randInt(5, 25), min_words = randInt(7, 20), max_words = min_words + randInt(1, 10)) {
   const lorem = new LoremIpsum({
     sentencesPerParagraph: {
       max: 8,

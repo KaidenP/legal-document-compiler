@@ -1,24 +1,42 @@
 import puppeteer from 'puppeteer'
 
-export async function renderPDF(html: string): Promise<Buffer> {
-  let browser: Awaited<ReturnType<typeof puppeteer.launch>> | null = null
+export class PDFRenderer {
+  private browser: Awaited<ReturnType<typeof puppeteer.launch>> | null = null
 
-  try {
-    browser = await puppeteer.launch({ headless: true })
-    const page = await browser.newPage()
+  async init(): Promise<void> {
+    if (!this.browser) {
+      this.browser = await puppeteer.launch({ headless: true })
+    }
+  }
 
-    await page.setContent(html, { waitUntil: 'networkidle0' })
+  async renderPDF(html: string): Promise<Buffer> {
+    if (!this.browser) {
+      throw new Error('PDFRenderer not initialized. Call init() first.')
+    }
 
-    const pdf = await page.pdf({
-      format: 'A4',
-      margin: { top: 20, right: 20, bottom: 20, left: 20 },
-      printBackground: true,
-    })
+    const page = await this.browser.newPage()
+    try {
+      await page.setContent(html, { waitUntil: 'networkidle0' })
 
-    return Buffer.from(pdf)
-  } finally {
-    if (browser) {
-      await browser.close()
+      const pdf = await page.pdf({
+        format: 'A4',
+        margin: { top: 20, right: 20, bottom: 20, left: 20 },
+        printBackground: true,
+      })
+
+      return Buffer.from(pdf)
+    } finally {
+      await page.close()
+    }
+  }
+
+  async close(): Promise<void> {
+    if (this.browser) {
+      await this.browser.close()
+      this.browser = null
     }
   }
 }
+
+// Export a singleton instance for convenience
+export const pdfRenderer = new PDFRenderer()

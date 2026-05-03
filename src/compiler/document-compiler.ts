@@ -5,7 +5,7 @@ import { mkdir, rm, readdir } from 'node:fs/promises'
 import { createHash } from 'node:crypto'
 import { Document, Globals } from '../schemas/document-schema'
 import { renderHTML, getTemplatePath, getStylePath } from '../renderer/html-renderer'
-import { renderPDF } from '../renderer/pdf-renderer'
+import { pdfRenderer } from '../renderer/pdf-renderer'
 import { startWatchServer } from './watch-server'
 import { numberParagraphs } from './preprocess'
 
@@ -58,6 +58,11 @@ export default async function ({ params }: RouteContext) {
   // Ensure inputFile is absolute
   const absInputFile = resolve(inputFile)
 
+  // Initialize PDF renderer if needed
+  if (buildPDF) {
+    await pdfRenderer.init()
+  }
+
   // Mark the globals file for hot reloading
   import(absInputFile)
 
@@ -87,77 +92,101 @@ export default async function ({ params }: RouteContext) {
   const cache = await loadCache(outdir)
   const processedSources = new Set<string>()
 
-  // Process each document
+  // Process documents with concurrency limit to avoid overwhelming resources
+  const concurrencyLimit = 5
+  const queue: (() => Promise<void>)[] = []
+
   for (let i = 0; i < docs.length; i++) {
-    const docData = docs[i]
-    const absPath = resolve(baseDir, docPaths[i]!)
-    const docContent = await Bun.file(absPath).text()
-    const hash = hashContent(docContent)
-    processedSources.add(absPath)
+    const promise = (async () => {
+      const docData = docs[i]
+      const absPath = resolve(baseDir, docPaths[i]!)
+      const docContent = await Bun.file(absPath).text()
+      const hash = hashContent(docContent)
+      processedSources.add(absPath)
 
-    const cached = cache.get(absPath)
-    if (cached?.hash === hash) {
-      console.log(`Skipped (unchanged): ${absPath}`)
-      continue
-    }
-
-    // Delete old generated files if source changed (filename may have changed)
-    if (cached) {
-      const base = cached.file.replace(/\.html$/, '')
-      await rm(pathjoin(outdir, `${base}.html`), { force: true })
-      await rm(pathjoin(outdir, `${base}.pdf`), { force: true })
-    }
-
-    try {
-      // Merge globals defaults into document
-      let mergedData = docData
-      if (typeof docData === 'object' && docData !== null) {
-        mergedData = deepMerge(globals, docData)
-        // console.log('Merged data:', JSON.stringify(mergedData, null, 2))
+      const cached = cache.get(absPath)
+      if (cached?.hash === hash) {
+        console.log(`Skipped (unchanged): ${absPath}`)
+        return
       }
 
-      // Validate document structure
-      let validatedDoc = Document.parse(mergedData)
-
-      // Preprocess: number paragraphs
-      validatedDoc = numberParagraphs(validatedDoc)
-
-      // Render HTML with CSS embedded
-      const html = await renderHTML({
-        templatePath: getTemplatePath(),
-        cssPath: getStylePath(),
-        data: validatedDoc,
-      })
-
-      // Determine output filename
-      const title = validatedDoc.title || 'document'
-      const submitter = validatedDoc.properties?.submitted_by || validatedDoc.properties?.author
-      const role = submitter?.role || 'Unknown'
-      const name = submitter?.name || 'Unknown'
-      const date = validatedDoc.properties?.date
-        ? validatedDoc.properties.date.toISOString().split('T')[0]
-        : new Date().toISOString().split('T')[0]
-      const baseFileName = `${title} - ${role} - ${name} - ${date}`
-
-      // Write HTML file
-      if (buildHTML) {
-        const htmlFile = pathjoin(outdir, `${baseFileName}.html`)
-        const taggedHTML = `<!-- source: ${absPath} | hash: ${hash} -->\n${html}`
-        await Bun.write(htmlFile, taggedHTML)
-        console.log(`Generated: ${htmlFile}`)
+      // Delete old generated files if source changed (filename may have changed)
+      if (cached) {
+        const base = cached.file.replace(/\.html$/, '')
+        await rm(pathjoin(outdir, `${base}.html`), { force: true })
+        await rm(pathjoin(outdir, `${base}.pdf`), { force: true })
       }
 
-      // Generate and write PDF file
-      if (buildPDF) {
-        const pdf = await renderPDF(html)
-        const pdfFile = pathjoin(outdir, `${baseFileName}.pdf`)
-        await Bun.write(pdfFile, pdf)
-        console.log(`Generated: ${pdfFile}`)
+      try {
+        // Merge globals defaults into document
+        let mergedData = docData
+        if (typeof docData === 'object' && docData !== null) {
+          mergedData = deepMerge(globals, docData)
+        }
+
+        // Validate document structure
+        let validatedDoc = Document.parse(mergedData)
+
+        // Preprocess: number paragraphs
+        validatedDoc = numberParagraphs(validatedDoc)
+
+        // Render HTML with CSS embedded
+        const html = await renderHTML({
+          templatePath: getTemplatePath(),
+          cssPath: getStylePath(),
+          data: validatedDoc,
+        })
+
+        // Determine output filename
+        const title = validatedDoc.title || 'document'
+        const submitter = validatedDoc.properties?.submitted_by || validatedDoc.properties?.author
+        const role = submitter?.role || 'Unknown'
+        const name = submitter?.name || 'Unknown'
+        const date = validatedDoc.properties?.date
+          ? validatedDoc.properties.date.toISOString().split('T')[0]
+          : new Date().toISOString().split('T')[0]
+        const baseFileName = `${title} - ${role} - ${name} - ${date}`
+
+        // Write HTML file
+        if (buildHTML) {
+          const htmlFile = pathjoin(outdir, `${baseFileName}.html`)
+          const taggedHTML = `<!-- source: ${absPath} | hash: ${hash} -->\n${html}`
+          await Bun.write(htmlFile, taggedHTML)
+          console.log(`Generated: ${htmlFile}`)
+        }
+
+        // Generate and write PDF file
+        if (buildPDF) {
+          const pdf = await pdfRenderer.renderPDF(html)
+          const pdfFile = pathjoin(outdir, `${baseFileName}.pdf`)
+          await Bun.write(pdfFile, pdf)
+          console.log(`Generated: ${pdfFile}`)
+        }
+      } catch (error) {
+        console.error(`Failed to process document ${i}:`, error)
       }
-    } catch (error) {
-      console.error(`Failed to process document ${i}:`, error)
+    })
+
+    queue.push(promise)
+  }
+
+  //
+  let promises: Promise<void>[] = []
+
+  // Process the queue
+  for (let q = queue.pop(); q; q = queue.pop()) {
+    let p = q().then(() => {
+      promises = promises.filter(x => x !== p)
+    })
+
+    promises.push(p)
+
+    if (promises.length >= concurrencyLimit) {
+      await Promise.race(promises)
     }
   }
+
+  await Promise.all(queue)
 
   // Delete stale files for removed sources
   for (const [sourcePath, { file }] of cache.entries()) {
@@ -171,5 +200,7 @@ export default async function ({ params }: RouteContext) {
 
   if (watch) {
     await startWatchServer(outdir)
+  } else {
+    await pdfRenderer.close()
   }
 }
