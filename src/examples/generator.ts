@@ -3,7 +3,7 @@ import { type RouteContext } from 'shell'
 import { LoremIpsum } from 'lorem-ipsum'
 import { dump } from 'js-yaml'
 
-import { Document, Input } from '../schemas/document-schema'
+import { Document } from '../schemas/document-schema'
 
 const MIN_DATE = new Date(`1900-01-01T00:00:00Z`)
 const MAX_DATE = new Date(`2100-01-01T00:00:00Z`)
@@ -30,57 +30,78 @@ function randomCaseNumber() {
 function genDocument(num_sect = randInt(2, 10), num_paras = randInt(5, 20), min_words = randInt(7, 15), max_words = min_words + randInt(1, 5)) {
   const lorem = new LoremIpsum({
     sentencesPerParagraph: {
-      max: 5,
-      min: 2,
+      max: 8,
+      min: 4,
     },
     wordsPerSentence: {
-      max: max_words,
-      min: min_words,
+      max: 16,
+      min: 4,
     },
   })
+  const roles = ['Respondent', 'Applicant', 'Third-Party'] as const
+  const titles = [
+    'Motion to Dismiss',
+    'Declaration Under Penalty of Perjury',
+    'Request for Continuance',
+    'Affidavit of Service',
+    'Notice of Hearing',
+    'Petition for Relief',
+    'Statement of Facts',
+    'Memorandum of Points and Authorities',
+    'Order to Show Cause',
+    'Notice of Motion',
+  ]
 
+  const content: (string | { type: 'heading'; text: string })[] = []
 
-
-  let doc: Document = {
-    version: '0.0.0',
-    type: 'document',
-    title: titleCase(lorem.generateWords(randInt(1, 4))),
-    properties: Math.random() > 0.33 ? undefined : {
-      case_number: Math.random() > 0.5 ? undefined : randomCaseNumber(),
-      case_name: Math.random() > 0.5 ? undefined : `${titleCase((new LoremIpsum()).generateWords(1))} v. ${titleCase((new LoremIpsum()).generateWords(1))}`,
-      author: Math.random() > 0.5 ? undefined : {
-        name: titleCase(lorem.generateWords(2)),
-        role: Math.random() > 0.3 ? (Math.random() > 0.5 ? 'Applicant' : 'Respondent') : 'Third-Party',
-      },
-      submitted_by: Math.random() > 0.2 ? undefined : {
-        name: titleCase(lorem.generateWords(2)),
-        role: Math.random() > 0.5 ? 'Applicant' : 'Respondent',
-      },
-      date: Math.random() > 0.5 ? undefined : randomDate(),
-    },
-    content: [],
-    features: {
-      pageNumbers: Math.random() > 0.5,
-      signatoryPage: Math.random() > 0.3 ? {
-        applicant: Math.random() > 0.3,
-        respondent: Math.random() > 0.3,
-        includeCounsel: Math.random() > 0.3,
-      } : undefined
-    }
-  }
-
-  for (let i = num_sect; i > 0; i--) {
-    doc.content.push({
+  for (let s = 0; s < num_sect; s++) {
+    content.push({
       type: 'heading',
       text: titleCase(lorem.generateWords(randInt(2, 5))),
-      subTitle: Math.random() > 0.5 ? titleCase(lorem.generateWords(randInt(2, 4))) : undefined,
     })
-    for (let j = num_paras; j > 0; j--) {
-      doc.content.push(lorem.generateParagraphs(1))
+
+    const sectionParas = randInt(Math.ceil(num_paras / num_sect) - 2, Math.ceil(num_paras / num_sect) + 2)
+    for (let p = 0; p < Math.max(1, sectionParas); p++) {
+      content.push(lorem.generateSentences(randInt(min_words, max_words)))
     }
   }
 
-  doc = Document.parse(doc)
+  const getRandomRole = () => roles[randInt(0, roles.length - 1)]!
+  const getRandomTitle = () => titles[randInt(0, titles.length - 1)]!
+
+  const author = {
+    name: titleCase(lorem.generateWords(2).replace(/\s+/g, ' ')),
+    role: getRandomRole(),
+  }
+
+  const submitter = {
+    name: titleCase(lorem.generateWords(2).replace(/\s+/g, ' ')),
+    role: getRandomRole(),
+  }
+
+  const doc: Document = {
+    version: '0.0.0',
+    type: 'document',
+    id: crypto.randomUUID(),
+    title: getRandomTitle(),
+    properties: {
+      author,
+      submitted_by: submitter,
+      case_number: randomCaseNumber(),
+      date: randomDate(new Date('2020-01-01'), new Date()),
+    },
+    features: {
+      pageNumbers: Math.random() > 0.3,
+      docID: Math.random() > 0.2,
+      initialsField: Math.random() > 0.3,
+      signatoryPage: {
+        applicant: Math.random() > 0.2,
+        respondent: Math.random() > 0.2,
+        includeCounsel: Math.random() > 0.4,
+      },
+    },
+    content,
+  }
 
   return doc
 }
@@ -100,44 +121,58 @@ const keyPrioritiesMap = keyPriorities.reduce((obj: { [k: string]: number }, v, 
   return obj
 }, {})
 
-export default async function ({ args, params }: RouteContext) {
-  const docs: Input[] = [{
+/**
+ * Sorting function to prioritize generated yaml key ordering
+ */
+function sortKeys(a: string, b: string) {
+  const aPriority = keyPrioritiesMap[a as keyof typeof keyPrioritiesMap] ?? keyPriorities.length
+  const bPriority = keyPrioritiesMap[b as keyof typeof keyPrioritiesMap] ?? keyPriorities.length
+
+  if (aPriority !== bPriority) return aPriority - bPriority
+  if (aPriority < keyPriorities.length) return 0
+  return a.localeCompare(b)
+}
+
+/**
+ * Main entrypoint
+ */
+export default async function ({ params }: RouteContext) {
+  const amount = (params.amount as number) || 1
+  const outdir = (params.outdir as string) || 'out'
+
+  const { mkdir } = await import('node:fs/promises')
+  await mkdir(outdir, { recursive: true })
+
+  const documentPaths: string[] = []
+
+  for (let i = 0; i < amount; i++) {
+    const doc = genDocument()
+    const yaml = dump(doc, {
+      sortKeys: sortKeys,
+      lineWidth: 120,
+    })
+
+    const filename = `document_${i + 1}.yaml`
+    const filepath = pathjoin(outdir, filename)
+
+    await Bun.write(filepath, yaml)
+    documentPaths.push(filename)
+    console.log(`Generated: ${filepath}`)
+  }
+
+  // Create a globals file that references all generated documents
+  const globalsFile = {
     version: '0.0.0',
     type: 'globals',
-    properties: {
-      case_number: randomCaseNumber(),
-      case_name: `${titleCase((new LoremIpsum()).generateWords(1))} v. ${titleCase((new LoremIpsum()).generateWords(1))}`,
-      author: {
-        name: titleCase((new LoremIpsum()).generateWords(2)),
-        role: Math.random() > 0.5 ? 'Applicant' : 'Respondent',
-      },
-      date: randomDate(),
-    }
-  }]
+    documents: documentPaths,
+  }
 
-  for (let i = 0; i < params.amount; i++)
-    docs.push(genDocument())
+  const globalsYaml = dump(globalsFile, {
+    sortKeys: sortKeys,
+    lineWidth: 120,
+  })
 
-  let outputYaml = '%YAML 1.2'
-  docs.forEach(doc => outputYaml += '\n---\n' + dump(doc, {
-    replacer: (_k, v) => {
-      if (v instanceof Date) {
-        return v.toISOString().slice(0, 10)
-      }
-
-      return v
-    },
-    sortKeys: (a: string, b: string) => {
-      const aPriority = keyPrioritiesMap[a as keyof typeof keyPrioritiesMap] ?? keyPriorities.length
-      const bPriority = keyPrioritiesMap[b as keyof typeof keyPrioritiesMap] ?? keyPriorities.length
-
-      if (aPriority !== bPriority) return aPriority - bPriority
-      if (aPriority < keyPriorities.length) return 0
-      return a.localeCompare(b)
-    }
-  }))
-
-  // console.log(outputYaml)
-  await Bun.write(params.file, outputYaml)
-  console.log('YAML Generated!!!')
+  const globalsPath = pathjoin(outdir, 'main.yaml')
+  await Bun.write(globalsPath, globalsYaml)
+  console.log(`Generated: ${globalsPath}`)
 }
