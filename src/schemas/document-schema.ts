@@ -114,7 +114,8 @@ export type Options = z.infer<typeof DocumentOptions>
  * Global settings entry extending DocumentOptions with type literal 'globals'.
  */
 export const Globals = DocumentOptions.extend({
-  type: z.literal('globals')
+  type: z.literal('globals'),
+  documents: z.array(z.string()).default([]),
 })
 export type Globals = z.infer<typeof Globals>
 

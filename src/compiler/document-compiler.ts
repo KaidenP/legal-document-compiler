@@ -1,8 +1,8 @@
-import { join as pathjoin } from 'node:path'
+import { join as pathjoin, resolve, dirname } from 'node:path'
 import { type RouteContext } from 'shell'
-import { loadAll } from 'js-yaml'
+import { load } from 'js-yaml'
 import { mkdir, rm } from 'node:fs/promises'
-import { Document } from '../schemas/document-schema'
+import { Document, Globals } from '../schemas/document-schema'
 import { renderHTML, getTemplatePath, getStylePath } from '../renderer/html-renderer'
 import { renderPDF } from '../renderer/pdf-renderer'
 import { startWatchServer } from './watch-server'
@@ -34,24 +34,33 @@ export default async function ({ params }: RouteContext) {
   const buildPDF = params.pdf !== false
   const buildHTML = params.html !== false
 
-  // Mark the file for hot reloading
-  import(inputFile)
+  // Ensure inputFile is absolute
+  const absInputFile = resolve(inputFile)
 
-  // Read and parse YAML file
-  const yamlContent = await Bun.file(inputFile).text()
-  const rawDocs = loadAll(yamlContent) as unknown[]
+  // Mark the globals file for hot reloading
+  import(absInputFile)
 
-  // Extract Globals if first document is type 'globals'
-  let globals: Record<string, unknown> | null = null
-  let docs = rawDocs
+  // Read and parse globals YAML file
+  const globalsContent = await Bun.file(absInputFile).text()
+  const globalsData = load(globalsContent)
+  const globals = Globals.parse(globalsData)
 
-  if (rawDocs.length > 0 && typeof rawDocs[0] === 'object' && rawDocs[0] !== null) {
-    const firstDoc = rawDocs[0] as Record<string, unknown>
-    if (firstDoc.type === 'globals') {
-      globals = firstDoc
-      docs = rawDocs.slice(1)
-    }
-  }
+  // Resolve document paths relative to the globals file directory
+  const baseDir = dirname(absInputFile)
+  const docPaths = globals.documents || []
+
+  // Load all document files
+  const docs = await Promise.all(
+    docPaths.map(async (docPath) => {
+      const absPath = resolve(baseDir, docPath)
+
+      // Mark the file for hot reloading
+      import(absPath)
+
+      const docContent = await Bun.file(absPath).text()
+      return load(docContent)
+    })
+  )
 
   // Clear and recreate output directory
   await rm(outdir, { recursive: true, force: true })
@@ -64,7 +73,7 @@ export default async function ({ params }: RouteContext) {
     try {
       // Merge globals defaults into document
       let mergedData = docData
-      if (globals && typeof docData === 'object' && docData !== null) {
+      if (typeof docData === 'object' && docData !== null) {
         mergedData = deepMerge(globals, docData)
         // console.log('Merged data:', JSON.stringify(mergedData, null, 2))
       }

@@ -15,7 +15,7 @@ const shell = Shell({
       description: 'Filename',
       shortcut: 'f',
       type: 'string',
-      default: normalize(join(__dirname, '..', 'examples', 'fixtures', 'example.yaml')),
+      default: normalize(join(__dirname, '..', 'examples', 'fixtures', 'example-globals.yaml')),
     },
   },
   commands: {
